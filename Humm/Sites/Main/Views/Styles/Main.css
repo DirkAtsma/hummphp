@@ -1,0 +1,214 @@
+@import url('Reset.css') all;
+
+@viewport
+{
+  zoom: 1.0;
+  user-zoom: zoom;
+  orientation: auto;
+  width: extend-to-zoom;
+}
+
+@media all
+{
+  body
+  {
+    color: #000;
+    margin: 2% 0;
+    font-size: 1em;
+    font-family: Arial;
+    background-color: #ddd;
+  }
+
+  a
+  {
+    color: #1e0fbe;
+    text-decoration: none;
+    background-color: transparent;
+  }
+
+  a:hover
+  {
+    color: crimson;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+
+  small
+  {
+    font-size: 0.8em;
+  }
+
+  strong
+  {
+    font-weight: bold;
+  }
+
+  #contentsWrapper
+  {
+    width: 45%;
+    color: #000;
+    padding: 1em;
+    margin: 0 auto;
+    border-radius: 0.5em;
+    background-color: #fff;
+  }
+
+  #pageHeader
+  {
+    color: #fff;
+    padding: 2em 0;
+    line-height: 3em;
+    text-align: center;
+    font-family: Verdana;
+    border-radius: 0.3em;
+    background-color: #111;
+  }
+
+  #pageHeader a
+  {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+  }
+
+  #pageHeader h1
+  {
+    font-size: 2.8em;
+    font-weight: bold;
+  }
+
+  #pageHeader h2
+  {
+    font-size: 1.7em;
+  }
+
+  #contentsWrapper h3
+  {
+    font-size: 1.3em;
+    margin: 1em 25% 0 0;
+  }
+
+  #contentsWrapper p
+  {
+    line-height: 1.5em;
+    margin: 1em 25% 0 0;
+  }
+
+  #languageForm
+  {
+    text-align: right;
+    margin: -1.2em 0.1em 0 0;
+  }
+
+  #languageForm select
+  {
+    border: 1px solid #999;
+  }
+
+  #pageFooter
+  {
+    color: #fff;
+    margin: 2em 0 0 0;
+    padding: 2.5em 1em;
+    line-height: 1.5em;
+    text-align: center;
+    border-radius: 0.3em;
+    background-color: #111;
+  }
+
+  #pageFooter a
+  {
+    color: #fff;
+    background-color: transparent;
+  }
+
+  #poweredNote
+  {
+
+  }
+
+  #hummVersion
+  {
+    font-style: italic;
+  }
+
+  #copyrightNote
+  {
+    font-size: 0.7em;
+  }
+}
+
+@media all and (max-width:1000px)
+{
+  #contentsWrapper
+  {
+    width: 60%;
+  }
+}
+
+@media all and (max-width:700px)
+{
+  #contentsWrapper
+  {
+    width: 70%;
+  }
+}
+
+@media all and (max-width:600px)
+{
+  #contentsWrapper
+  {
+    width: 85%;
+    padding: 0.5em;
+  }
+
+  #contentsWrapper p
+  {
+    margin: 1em 5% 0 0;
+  }
+}
+
+@media all and (max-width:450px)
+{
+  body
+  {
+    margin: 0.5em 0;
+    text-align: center;
+  }
+
+  #pageHeader
+  {
+    font-size: 0.7em;
+    padding: 2em 2em 3em 2em;
+  }
+
+  #pageHeader h2
+  {
+    display: none;
+  }
+
+  #contentsWrapper h3
+  {
+    color: #fff;
+    padding: 0.5em;
+    margin: -0.5em 0 0 0;
+    background-color: #999;
+    border-radius: 0 0 0.3em 0.3em;
+  }
+
+  #contentsWrapper p
+  {
+    margin: 1em 5% 0 0;
+  }
+
+  #languageForm
+  {
+    margin: 1em 0 0 0;
+    text-align: center;
+  }
+
+  #poweredNote
+  {
+    display: none;
+  }
+}

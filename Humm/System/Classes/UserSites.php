@@ -72,10 +72,9 @@ class UserSites extends Unclonable
   private static $dirName = null;
 
   /**
-   * Discover the appropite current directory name.
+   * Initialize some class members.
    *
    * @static
-   * @todo This method probably can be improved to accurate results
    * @staticvar int $init Prevent twice execution.
    */
   public static function init()
@@ -83,16 +82,7 @@ class UserSites extends Unclonable
     static $init = 0;
     if (!$init) {
       $init = 1;
-      $server = \str_replace
-      (
-        array('http://', 'https://', 'www.'),
-        StrUtils::EMPTY_STRING,
-        ServerInfo::url()
-      );
-
-      self::$dirName = \ucfirst(\substr($server, 0,
-       \strpos($server, StrUtils::DOT)));
-
+      self::$dirName = self::siteDirFromUrl();
       if (!self::siteDirExists(self::$dirName)) {
         self::$dirName = self::MAIN_SITE_DIR;
       }
@@ -190,6 +180,57 @@ class UserSites extends Unclonable
   }
 
   /**
+   * Retrieve the expected user site from the server URL.
+   *
+   * Note this function can determine the right site directory
+   * from the server URL including possible subdomains.
+   *
+   * For example, from an URL like this:
+   *
+   * http://www.mysite.com/
+   *
+   * The site directory are Mysite (note the capitalization convention).
+   *
+   * Another URL like this this:
+   *
+   * http://www.subdomain.mysite.com/
+   *
+   * The site directory are SubdomainMysite.
+   *
+   * @static
+   * @return string The found site directory name.
+   */
+  private static function siteDirFromUrl()
+  {
+    $matches = array();
+    $siteDir = StrUtils::EMPTY_STRING;
+    $serverUrl = self::sanitizedServerUrl();
+    \preg_match_all('#(.+)\.(.+)#', $serverUrl, $matches);
+    if (isset($matches[1]) && isset($matches[1][0])) {
+      foreach( \explode(StrUtils::DOT, $matches[1][0]) as $domainPart ) {
+        $siteDir .= \ucfirst($domainPart);
+      }
+    }
+    return $siteDir;
+  }
+
+  /**
+   * Sanitize the server URL removing protocol and www.
+   *
+   * @static
+   * @return string Sanitized server URL.
+   */
+  private static function sanitizedServerUrl()
+  {
+    return \str_replace
+    (
+      array('http://', 'https://', 'www.'),
+      StrUtils::EMPTY_STRING,
+      ServerInfo::url()
+    );
+  }
+
+  /**
    * Find if a site directory name exists.
    *
    * @static
@@ -198,7 +239,8 @@ class UserSites extends Unclonable
    */
   private static function siteDirExists($siteDirName)
   {
-    return \is_dir(DirPaths::humm().DirPaths::SITES_DIR_NAME.
-            \DIRECTORY_SEPARATOR.$siteDirName);
+    return !StrUtils::isTrimEmpty($siteDirName) &&
+             \is_dir(DirPaths::humm().DirPaths::SITES_DIR_NAME.
+              \DIRECTORY_SEPARATOR.$siteDirName);
   }
 }

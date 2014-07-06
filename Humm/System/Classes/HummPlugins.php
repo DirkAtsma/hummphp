@@ -210,7 +210,7 @@ class HummPlugins extends Unclonable
     static $init = 0;
     if (!$init) {
       $init = 1;
-      if (!StrUtils::isEmpty(\HUMM_ACTIVE_PLUGINS)) {
+      if (!StrUtils::isTrimEmpty(\HUMM_ACTIVE_PLUGINS)) {
         self::loadPlugins();
       }
     }

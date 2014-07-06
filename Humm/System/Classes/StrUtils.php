@@ -52,6 +52,18 @@ class StrUtils extends Unclonable
    */
   public static function isEmpty($string)
   {
+    return $string === self::EMPTY_STRING;
+  }
+
+  /**
+   * Find if the specified string is empty after trim.
+   *
+   * @static
+   * @param string $string String to be evaluated.
+   * @return boolean True if string is empty, False if not.
+   */
+  public static function isTrimEmpty($string)
+  {
     return \trim($string) === self::EMPTY_STRING;
   }
 }

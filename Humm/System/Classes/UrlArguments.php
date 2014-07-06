@@ -76,8 +76,8 @@ class UrlArguments extends Unclonable
     if (!$init) {
       $init = 1;
       self::$arguments = array();
-      $uri = self::uriSanitized();
-      if (!StrUtils::isEmpty($uri)) {
+      $uri = self::sanitizedUri();
+      if (!StrUtils::isTrimEmpty($uri)) {
         self::$arguments = \explode(
          StrUtils::URL_SEPARATOR, $uri);
       }
@@ -128,7 +128,7 @@ class UrlArguments extends Unclonable
    * @static
    * @return string Current URI well sanitized.
    */
-  private static function uriSanitized()
+  private static function sanitizedUri()
   {
     return \trim
     (

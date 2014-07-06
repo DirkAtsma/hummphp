@@ -522,7 +522,7 @@ class PDOExtended extends \PDO
       array(self::ATTR_EMULATE_PREPARES => true)
     );
     if ($this->statement instanceof \PDOStatement) {
-      if (!StrUtils::isEmpty($class)) {
+      if (!StrUtils::isTrimEmpty($class)) {
         $this->fetchClass = $class;
         $this->fetchMode = \PDO::FETCH_CLASS;
       }

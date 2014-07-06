@@ -44,7 +44,7 @@ class Database extends Unclonable
     static $init = 0;
     if (!$init) {
       $init = 1;
-      if (!StrUtils::isEmpty(\HUMM_DATABASE_DSN)) {
+      if (!StrUtils::isTrimEmpty(\HUMM_DATABASE_DSN)) {
         self::tryToConnect();
       }
     }

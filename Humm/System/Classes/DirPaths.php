@@ -385,4 +385,15 @@ class DirPaths extends Unclonable
   {
     return self::siteImages().self::VIEWS_STYLES_DIR_NAME.\DIRECTORY_SEPARATOR;
   }
+
+  /**
+   * Retrieve the site procedural directory path.
+   *
+   * @static
+   * @return string site procedural absolute directory path.
+   */
+  public static function siteProcedural()
+  {
+    return self::site().self::PROCEDURAL_DIR_NAME.\DIRECTORY_SEPARATOR;
+  }
 }

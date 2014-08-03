@@ -309,6 +309,17 @@ class DirPaths extends Unclonable
   }
 
   /**
+   * Retrieve the site procedural directory path.
+   *
+   * @static
+   * @return string site procedural absolute directory path.
+   */
+  public static function siteProcedural()
+  {
+    return self::site().self::PROCEDURAL_DIR_NAME.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
    * Retrieve the site directory path.
    *
    * @static
@@ -361,7 +372,7 @@ class DirPaths extends Unclonable
    */
   public static function siteViewsImages()
   {
-    return self::siteImages().self::VIEWS_IMAGES_DIR_NAME.\DIRECTORY_SEPARATOR;
+    return self::siteViews().self::VIEWS_IMAGES_DIR_NAME.\DIRECTORY_SEPARATOR;
   }
 
   /**
@@ -372,7 +383,7 @@ class DirPaths extends Unclonable
    */
   public static function siteViewsScripts()
   {
-    return self::siteImages().self::VIEWS_SCRIPTS_DIR_NAME.\DIRECTORY_SEPARATOR;
+    return self::siteViews().self::VIEWS_SCRIPTS_DIR_NAME.\DIRECTORY_SEPARATOR;
   }
 
   /**
@@ -383,17 +394,6 @@ class DirPaths extends Unclonable
    */
   public static function siteViewsStyles()
   {
-    return self::siteImages().self::VIEWS_STYLES_DIR_NAME.\DIRECTORY_SEPARATOR;
-  }
-
-  /**
-   * Retrieve the site procedural directory path.
-   *
-   * @static
-   * @return string site procedural absolute directory path.
-   */
-  public static function siteProcedural()
-  {
-    return self::site().self::PROCEDURAL_DIR_NAME.\DIRECTORY_SEPARATOR;
+    return self::siteViews().self::VIEWS_STYLES_DIR_NAME.\DIRECTORY_SEPARATOR;
   }
 }

@@ -49,6 +49,11 @@ class UrlPaths extends Unclonable
   const SYSTEM_VIEWS_SCRIPTS_URL_PATH = 'Humm/System/Views/Scripts/';
 
   /**
+   * Define the system procedural directory relative URL path.
+   */
+  const SYSTEM_PROCEDURAL_URL_PATH = 'Humm/System/Procedural/';
+
+  /**
    * Define the Humm PHP script entry point file name.
    */
   const INDEX_FILE_NAME = 'index.php';
@@ -159,6 +164,16 @@ class UrlPaths extends Unclonable
   }
 
   /**
+   * Retrieve the URL for the site procedural directory.
+   *
+   * @return string URL for the site procedural directory.
+   */
+  public static function siteProcedural()
+  {
+    return self::path(UserSites::proceduralUrlPath());
+  }
+
+  /**
    * Retrieve the URL for the system views directory.
    *
    * @return string URL for the system views directory.
@@ -206,5 +221,15 @@ class UrlPaths extends Unclonable
   public static function systemViewsScripts()
   {
     return self::path(self::SYSTEM_VIEWS_SCRIPTS_URL_PATH);
+  }
+
+  /**
+   * Retrieve the URL for the system procedural directory.
+   *
+   * @return string URL for the system procedural directory.
+   */
+  public static function systemProcedural()
+  {
+    return self::path(self::SYSTEM_PROCEDURAL_URL_PATH);
   }
 }

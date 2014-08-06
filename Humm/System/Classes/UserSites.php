@@ -65,6 +65,11 @@ class UserSites extends Unclonable
   const VIEWS_SCRIPTS_URL_PATH = 'Humm/Sites/%s/Views/Scripts/';
 
   /**
+   * Define the current site procedural directory URL relative path.
+   */
+  const PROCEDURAL_URL_PATH = 'Humm/Sites/%s/Procedural/';
+
+  /**
    * Store the current site directory name.
    *
    * @var string
@@ -153,6 +158,17 @@ class UserSites extends Unclonable
   public static function viewsScriptsUrlPath()
   {
     return \sprintf(self::VIEWS_SCRIPTS_URL_PATH, self::$dirName);
+  }
+
+  /**
+   * Retrieve the current site procedural directory URL relative path.
+   *
+   * @static
+   * @return string Current site procedural directory URL relative path.
+   */
+  public static function proceduralUrlPath()
+  {
+    return \sprintf(self::PROCEDURAL_URL_PATH, self::$dirName);
   }
 
   /**

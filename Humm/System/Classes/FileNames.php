@@ -17,8 +17,8 @@ namespace Humm\System\Classes;
 /**
  * System FileNames class implementation.
  *
- * Define certain not localizables, case sensitive directory
- * names of the sytem and also the user sites file names.
+ * Define certain not localizables, case sensitive
+ * sytem and user sites file names.
  */
 class FileNames extends Unclonable
 {

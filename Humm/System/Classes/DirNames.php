@@ -17,8 +17,8 @@ namespace Humm\System\Classes;
 /**
  * System DirNames class implementation.
  *
- * Define certain not localizables, case sensitive directory
- * names of the sytem and also the user sites directory names.
+ * Define certain not localizables, case sensitive
+ * sytem and user sites directory names.
  */
 class DirNames extends Unclonable
 {

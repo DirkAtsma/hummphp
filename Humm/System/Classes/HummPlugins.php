@@ -388,7 +388,7 @@ class HummPlugins extends Unclonable
       $fileInfo->getPathName().
       \DIRECTORY_SEPARATOR.
       $fileInfo->getBasename().
-      FilePaths::PHP_FILE_DOT_EXTENSION
+      FileExts::PHP_FILE_DOT_EXTENSION
     );
   }
 

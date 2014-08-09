@@ -301,6 +301,6 @@ class LanguagesMap extends Unclonable
            $fileInfo->getBasename().
            \DIRECTORY_SEPARATOR.
            $fileInfo->getBasename().
-           FilePaths::MO_FILE_DOT_EXTENSION;
+           FileExts::MO_FILE_DOT_EXTENSION;
   }
 }

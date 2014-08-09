@@ -25,26 +25,6 @@ namespace Humm\System\Classes;
 class FilePaths extends Unclonable
 {
   /**
-   * Define a MO file extension.
-   */
-  const MO_FILE_EXTENSION = 'mo';
-
-  /**
-   * Define a PHP file extension.
-   */
-  const PHP_FILE_EXTENSION = 'php';
-
-  /**
-   * Define a MO file dotted extension.
-   */
-  const MO_FILE_DOT_EXTENSION = '.mo';
-
-  /**
-   * Define a PHP file dotted extension.
-   */
-  const PHP_FILE_DOT_EXTENSION = '.php';
-
-  /**
    * Retrieve the system configuration file path.
    *
    * @static
@@ -68,7 +48,7 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           self::MO_FILE_DOT_EXTENSION;
+           FileExts::MO_FILE_DOT_EXTENSION;
   }
 
   /**
@@ -106,7 +86,7 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           self::MO_FILE_DOT_EXTENSION;
+           FileExts::MO_FILE_DOT_EXTENSION;
   }
 
   /**
@@ -133,6 +113,6 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           self::MO_FILE_DOT_EXTENSION;
+           FileExts::MO_FILE_DOT_EXTENSION;
   }
 }

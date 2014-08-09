@@ -45,21 +45,6 @@ class FilePaths extends Unclonable
   const PHP_FILE_DOT_EXTENSION = '.php';
 
   /**
-   * Define the configurations files name.
-   */
-  const CONFIG_FILE_NAME = 'Config.php';
-
-  /**
-   * Define the system version file name.
-   */
-  const VERSION_FILE_NAME = 'Version.php';
-
-  /**
-   * Define the system I18n functions file name.
-   */
-  const I18N_FUNCTIONS_FILE_NAME = 'I18nFunctions.php';
-
-  /**
    * Retrieve the system configuration file path.
    *
    * @static
@@ -67,8 +52,7 @@ class FilePaths extends Unclonable
    */
   public static function systemConfig()
   {
-    return DirPaths::systemConfig().
-           self::CONFIG_FILE_NAME;
+    return DirPaths::systemConfig().FileNames::CONFIG_FILE_NAME;
   }
 
   /**
@@ -95,7 +79,7 @@ class FilePaths extends Unclonable
    */
   public static function systemVersion()
   {
-    return DirPaths::version().self::VERSION_FILE_NAME;
+    return DirPaths::version().FileNames::VERSION_FILE_NAME;
   }
 
   /**
@@ -106,7 +90,7 @@ class FilePaths extends Unclonable
    */
   public static function siteConfig()
   {
-    return DirPaths::siteConfig().self::CONFIG_FILE_NAME;
+    return DirPaths::siteConfig().FileNames::CONFIG_FILE_NAME;
   }
 
   /**
@@ -133,7 +117,7 @@ class FilePaths extends Unclonable
    */
   public static function systemI18nFunctions()
   {
-    return DirPaths::systemProcedural().self::I18N_FUNCTIONS_FILE_NAME;
+    return DirPaths::systemProcedural().FileNames::I18N_FUNCTIONS_FILE_NAME;
   }
 
   /**

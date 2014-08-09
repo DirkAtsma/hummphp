@@ -24,9 +24,24 @@ namespace Humm\System\Classes;
 class UrlPaths extends Unclonable
 {
   /**
-   * Define the Humm PHP script entry point file name.
+   * Define a MO file extension.
    */
-  const INDEX_FILE_NAME = 'index.php';
+  const MO_FILE_EXTENSION = 'mo';
+
+  /**
+   * Define a PHP file extension.
+   */
+  const PHP_FILE_EXTENSION = 'php';
+
+  /**
+   * Define a MO file dotted extension.
+   */
+  const MO_FILE_DOT_EXTENSION = '.mo';
+
+  /**
+   * Define a PHP file dotted extension.
+   */
+  const PHP_FILE_DOT_EXTENSION = '.php';
 
   /**
    * Root URL in which Humm PHP reside.
@@ -51,7 +66,7 @@ class UrlPaths extends Unclonable
       self::$root = ServerInfo::url().
       \str_replace
       (
-        self::INDEX_FILE_NAME,
+        FileNames::PHP_INDEX_FILE_NAME,
         StrUtils::EMPTY_STRING,
         ServerInfo::script()
       );

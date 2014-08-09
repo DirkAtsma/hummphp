@@ -304,7 +304,7 @@ class UserSites extends Unclonable
   private static function siteDirExists($siteDirName)
   {
     return !StrUtils::isTrimEmpty($siteDirName) &&
-             \is_dir(DirPaths::humm().DirPaths::SITES_DIR_NAME.
+             \is_dir(DirPaths::humm().DirNames::SITES_DIR_NAME.
               \DIRECTORY_SEPARATOR.$siteDirName);
   }
 }

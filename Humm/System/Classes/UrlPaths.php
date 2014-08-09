@@ -90,8 +90,8 @@ class UrlPaths extends Unclonable
    */
   public static function system()
   {
-    return self::path(DirPaths::HUMM_DIR_NAME.StrUtils::URL_SEPARATOR.
-            DirPaths::SYSTEM_DIR_NAME.StrUtils::URL_SEPARATOR);
+    return self::path(DirNames::HUMM_DIR_NAME.StrUtils::URL_SEPARATOR.
+            DirNames::SYSTEM_DIR_NAME.StrUtils::URL_SEPARATOR);
   }
 
   /**
@@ -102,7 +102,7 @@ class UrlPaths extends Unclonable
   public static function systemConfig()
   {
     return self::system().
-            DirPaths::CONFIG_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::CONFIG_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -113,7 +113,7 @@ class UrlPaths extends Unclonable
   public static function systemLocale()
   {
     return self::system().
-            DirPaths::LOCALE_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::LOCALE_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -124,7 +124,7 @@ class UrlPaths extends Unclonable
   public static function systemClasses()
   {
     return self::system().
-            DirPaths::CLASSES_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::CLASSES_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -135,7 +135,7 @@ class UrlPaths extends Unclonable
   public static function systemVersion()
   {
     return self::system().
-            DirPaths::VERSION_DIR_NAME_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::VERSION_DIR_NAME_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -146,7 +146,7 @@ class UrlPaths extends Unclonable
   public static function systemProcedural()
   {
     return self::system().
-            DirPaths::PROCEDURAL_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::PROCEDURAL_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -156,7 +156,7 @@ class UrlPaths extends Unclonable
    */
   public static function systemViews()
   {
-    return self::system().DirPaths::VIEWS_DIR_NAME.StrUtils::URL_SEPARATOR;
+    return self::system().DirNames::VIEWS_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -167,7 +167,7 @@ class UrlPaths extends Unclonable
   public static function systemViewsFiles()
   {
     return self::systemViews().
-            DirPaths::VIEWS_FILES_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::VIEWS_FILES_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -178,7 +178,7 @@ class UrlPaths extends Unclonable
   public static function systemViewsHelpers()
   {
     return self::systemViews().
-            DirPaths::VIEWS_HELPERS_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::VIEWS_HELPERS_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -189,7 +189,7 @@ class UrlPaths extends Unclonable
   public static function systemViewsImages()
   {
     return self::systemViews().
-            DirPaths::VIEWS_IMAGES_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::VIEWS_IMAGES_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -200,7 +200,7 @@ class UrlPaths extends Unclonable
   public static function systemViewsStyles()
   {
     return self::systemViews().
-            DirPaths::VIEWS_STYLES_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::VIEWS_STYLES_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -211,7 +211,7 @@ class UrlPaths extends Unclonable
   public static function systemViewsScripts()
   {
     return self::systemViews().
-            DirPaths::VIEWS_SCRIPTS_DIR_NAME.StrUtils::URL_SEPARATOR;
+            DirNames::VIEWS_SCRIPTS_DIR_NAME.StrUtils::URL_SEPARATOR;
   }
 
   /**

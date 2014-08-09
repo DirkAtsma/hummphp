@@ -70,6 +70,21 @@ class UserSites extends Unclonable
   const PROCEDURAL_URL_PATH = 'Humm/Sites/%s/Procedural/';
 
   /**
+   * Define the current site classes directory URL relative path.
+   */
+  const CLASSES_URL_PATH = 'Humm/Sites/%s/Classes/';
+
+  /**
+   * Define the current site config directory URL relative path.
+   */
+  const CONFIG_URL_PATH = 'Humm/Sites/%s/Config/';
+
+  /**
+   * Define the current site locale directory URL relative path.
+   */
+  const LOCALE_URL_PATH = 'Humm/Sites/%s/Locale/';
+
+  /**
    * Store the current site directory name.
    *
    * @var string
@@ -103,6 +118,50 @@ class UserSites extends Unclonable
   public static function siteDirName()
   {
     return self::$dirName;
+  }
+
+  /**
+   * Retrieve the current site config directory URL relative path.
+   *
+   * @static
+   * @return string Current site config directory URL relative path.
+   */
+  public static function configUrlPath()
+  {
+    return \sprintf(self::CONFIG_URL_PATH, self::$dirName);
+  }
+
+  /**
+   * Retrieve the current site locale directory URL relative path.
+   *
+   * @static
+   * @return string Current site locale directory URL relative path.
+   */
+  public static function localeUrlPath()
+  {
+    return \sprintf(self::LOCALE_URL_PATH, self::$dirName);
+  }
+
+  /**
+   * Retrieve the current site classes directory URL relative path.
+   *
+   * @static
+   * @return string Current site classes directory URL relative path.
+   */
+  public static function classesUrlPath()
+  {
+    return \sprintf(self::CLASSES_URL_PATH, self::$dirName);
+  }
+
+  /**
+   * Retrieve the current site procedural directory URL relative path.
+   *
+   * @static
+   * @return string Current site procedural directory URL relative path.
+   */
+  public static function proceduralUrlPath()
+  {
+    return \sprintf(self::PROCEDURAL_URL_PATH, self::$dirName);
   }
 
   /**
@@ -158,17 +217,6 @@ class UserSites extends Unclonable
   public static function viewsScriptsUrlPath()
   {
     return \sprintf(self::VIEWS_SCRIPTS_URL_PATH, self::$dirName);
-  }
-
-  /**
-   * Retrieve the current site procedural directory URL relative path.
-   *
-   * @static
-   * @return string Current site procedural directory URL relative path.
-   */
-  public static function proceduralUrlPath()
-  {
-    return \sprintf(self::PROCEDURAL_URL_PATH, self::$dirName);
   }
 
   /**

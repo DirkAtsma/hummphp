@@ -38,6 +38,11 @@ class DirPaths extends Unclonable
   const SYSTEM_DIR_NAME = 'System';
 
   /**
+   * Define the system classes name.
+   */
+  const CLASSES_DIR_NAME = 'Classes';
+
+  /**
    * Define the config directory name.
    */
   const CONFIG_DIR_NAME = 'Config';

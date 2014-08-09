@@ -24,36 +24,6 @@ namespace Humm\System\Classes;
 class UrlPaths extends Unclonable
 {
   /**
-   * Define the system views relative URL path.
-   */
-  const SYSTEM_VIEWS_URL_PATH = 'Humm/System/Views/';
-
-  /**
-   * Define the system views scripts relative URL path.
-   */
-  const SYSTEM_VIEWS_FILES_URL_PATH = 'Humm/System/Views/Files/';
-
-  /**
-   * Define the system views styles relative URL path.
-   */
-  const SYSTEM_VIEWS_STYLES_URL_PATH = 'Humm/System/Views/Styles/';
-
-  /**
-   * Define the system views images relative URL path.
-   */
-  const SYSTEM_VIEWS_IMAGES_URL_PATH = 'Humm/System/Views/Images/';
-
-  /**
-   * Define the system views scripts relative URL path.
-   */
-  const SYSTEM_VIEWS_SCRIPTS_URL_PATH = 'Humm/System/Views/Scripts/';
-
-  /**
-   * Define the system procedural directory relative URL path.
-   */
-  const SYSTEM_PROCEDURAL_URL_PATH = 'Humm/System/Procedural/';
-
-  /**
    * Define the Humm PHP script entry point file name.
    */
   const INDEX_FILE_NAME = 'index.php';
@@ -114,6 +84,167 @@ class UrlPaths extends Unclonable
   }
 
   /**
+   * Retrieve the URL for the system directory.
+   *
+   * @return string URL for the system directory.
+   */
+  public static function system()
+  {
+    return self::path(DirPaths::HUMM_DIR_NAME.StrUtils::URL_SEPARATOR.
+            DirPaths::SYSTEM_DIR_NAME.StrUtils::URL_SEPARATOR);
+  }
+
+  /**
+   * Retrieve the URL for the system config directory.
+   *
+   * @return string URL for the system config directory.
+   */
+  public static function systemConfig()
+  {
+    return self::system().
+            DirPaths::CONFIG_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system locale directory.
+   *
+   * @return string URL for the system locale directory.
+   */
+  public static function systemLocale()
+  {
+    return self::system().
+            DirPaths::LOCALE_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system classes directory.
+   *
+   * @return string URL for the system classes directory.
+   */
+  public static function systemClasses()
+  {
+    return self::system().
+            DirPaths::CLASSES_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system version directory.
+   *
+   * @return string URL for the system version directory.
+   */
+  public static function systemVersion()
+  {
+    return self::system().
+            DirPaths::VERSION_DIR_NAME_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system procedural directory.
+   *
+   * @return string URL for the system procedural directory.
+   */
+  public static function systemProcedural()
+  {
+    return self::system().
+            DirPaths::PROCEDURAL_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system views directory.
+   *
+   * @return string URL for the system views directory.
+   */
+  public static function systemViews()
+  {
+    return self::system().DirPaths::VIEWS_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system views files directory.
+   *
+   * @return string URL for the system views files directory.
+   */
+  public static function systemViewsFiles()
+  {
+    return self::systemViews().
+            DirPaths::VIEWS_FILES_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system views helpers directory.
+   *
+   * @return string URL for the system views helpers directory.
+   */
+  public static function systemViewsHelpers()
+  {
+    return self::systemViews().
+            DirPaths::VIEWS_HELPERS_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system views images directory.
+   *
+   * @return string URL for the system views images directory.
+   */
+  public static function systemViewsImages()
+  {
+    return self::systemViews().
+            DirPaths::VIEWS_IMAGES_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system views styles directory.
+   *
+   * @return string URL for the system views styles directory.
+   */
+  public static function systemViewsStyles()
+  {
+    return self::systemViews().
+            DirPaths::VIEWS_STYLES_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the system views scripts directory.
+   *
+   * @return string URL for the system views scripts directory.
+   */
+  public static function systemViewsScripts()
+  {
+    return self::systemViews().
+            DirPaths::VIEWS_SCRIPTS_DIR_NAME.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the site classes directory.
+   *
+   * @return string URL for the site classes directory.
+   */
+  public static function siteClasses()
+  {
+    return self::path(UserSites::classesUrlPath());
+  }
+
+  /**
+   * Retrieve the URL for the site procedural directory.
+   *
+   * @return string URL for the site procedural directory.
+   */
+  public static function siteProcedural()
+  {
+    return self::path(UserSites::proceduralUrlPath());
+  }
+
+  /**
+   * Retrieve the URL for the site config directory.
+   *
+   * @return string URL for the site config directory.
+   */
+  public static function siteConfig()
+  {
+    return self::path(UserSites::configUrlPath());
+  }
+
+  /**
    * Retrieve the URL for the site views directory.
    *
    * @return string URL for the site views directory.
@@ -161,75 +292,5 @@ class UrlPaths extends Unclonable
   public static function siteViewsScripts()
   {
     return self::path(UserSites::viewsScriptsUrlPath());
-  }
-
-  /**
-   * Retrieve the URL for the site procedural directory.
-   *
-   * @return string URL for the site procedural directory.
-   */
-  public static function siteProcedural()
-  {
-    return self::path(UserSites::proceduralUrlPath());
-  }
-
-  /**
-   * Retrieve the URL for the system views directory.
-   *
-   * @return string URL for the system views directory.
-   */
-  public static function systemViews()
-  {
-    return self::path(self::SYSTEM_VIEWS_URL_PATH);
-  }
-
-  /**
-   * Retrieve the URL for the system views files directory.
-   *
-   * @return string URL for the system views files directory.
-   */
-  public static function systemViewsFiles()
-  {
-    return self::path(self::SYSTEM_VIEWS_FILES_URL_PATH);
-  }
-
-  /**
-   * Retrieve the URL for the system views images directory.
-   *
-   * @return string URL for the system views images directory.
-   */
-  public static function systemViewsImages()
-  {
-    return self::path(self::SYSTEM_VIEWS_IMAGES_URL_PATH);
-  }
-
-  /**
-   * Retrieve the URL for the system views styles directory.
-   *
-   * @return string URL for the system views styles directory.
-   */
-  public static function systemViewsStyles()
-  {
-    return self::path(self::SYSTEM_VIEWS_STYLES_URL_PATH);
-  }
-
-  /**
-   * Retrieve the URL for the system views scripts directory.
-   *
-   * @return string URL for the system views scripts directory.
-   */
-  public static function systemViewsScripts()
-  {
-    return self::path(self::SYSTEM_VIEWS_SCRIPTS_URL_PATH);
-  }
-
-  /**
-   * Retrieve the URL for the system procedural directory.
-   *
-   * @return string URL for the system procedural directory.
-   */
-  public static function systemProcedural()
-  {
-    return self::path(self::SYSTEM_PROCEDURAL_URL_PATH);
   }
 }

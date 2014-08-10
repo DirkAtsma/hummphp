@@ -237,8 +237,8 @@ class ViewsHandler extends Unclonable
   private static function addPluginsViews(HtmlTemplate $template)
   {
     foreach (HummPlugins::getPlugins() as $plugin) {
-      $template->addViewsDirPath($plugin->pluginViewsDirPath());
-      $template->addViewsDirPath($plugin->pluginViewsHelpersDirPath());
+      $template->addViewsDirPath($plugin->viewsDir());
+      $template->addViewsDirPath($plugin->viewsHelpersDir());
     }
   }
 

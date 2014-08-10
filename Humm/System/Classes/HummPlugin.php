@@ -45,7 +45,7 @@ abstract class HummPlugin extends BaseClass
    * @todo Plugins priority are not yet implemented
    * @return int The plugin priority.
    */
-  public function getPriority()
+  public function priority()
   {
     return HummPlugins::PLUGIN_PRIORITY_LOWER;
   }
@@ -55,19 +55,45 @@ abstract class HummPlugin extends BaseClass
    *
    * @return string Plugin directory URL.
    */
-  public function pluginDirUrl()
+  public function rootUrl()
   {
     return $this->getClassDirUrl();
   }
 
   /**
-   * Retrieve the plugin directory path.
+   * Retrieve the plugin classes directory URL.
    *
-   * @return string Plugin directory path.
+   * @return string Plugin classes directory URL.
    */
-  public function pluginDirPath()
+  public function classesUrl()
   {
-    return $this->getClassDirPath();
+    return $this->rootUrl().
+           DirNames::CLASSES_DIR_NAME.
+           StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin locale directory URL.
+   *
+   * @return string Plugin locale directory URL.
+   */
+  public function localeUrl()
+  {
+    return $this->rootUrl().
+           DirNames::LOCALE_DIR_NAME.
+           StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin procedural directory URL.
+   *
+   * @return string Plugin procedural directory URL.
+   */
+  public function proceduralUrl()
+  {
+    return $this->rootUrl().
+           DirNames::PROCEDURAL_DIR_NAME.
+           StrUtils::URL_SEPARATOR;
   }
 
   /**
@@ -75,23 +101,11 @@ abstract class HummPlugin extends BaseClass
    *
    * @return string Plugin views directory URL.
    */
-  public function pluginViewsDirUrl()
+  public function viewsUrl()
   {
-    return $this->pluginDirUrl().
+    return $this->rootUrl().
            DirNames::VIEWS_DIR_NAME.
            StrUtils::URL_SEPARATOR;
-  }
-
-  /**
-   * Retrieve the plugin views directory path.
-   *
-   * @return string Plugin views directory path.
-   */
-  public function pluginViewsDirPath()
-  {
-    return $this->pluginDirPath().
-           DirNames::VIEWS_DIR_NAME.
-           \DIRECTORY_SEPARATOR;
   }
 
   /**
@@ -99,23 +113,11 @@ abstract class HummPlugin extends BaseClass
    *
    * @return string Plugin views files directory URL.
    */
-  public function pluginViewsFilesDirUrl()
+  public function viewsFilesUrl()
   {
-    return $this->pluginViewsDirUrl().
+    return $this->viewsUrl().
            DirNames::FILES_DIR_NAME.
            StrUtils::URL_SEPARATOR;
-  }
-
-  /**
-   * Retrieve the plugin views files directory path.
-   *
-   * @return string Plugin views files directory path.
-   */
-  public function pluginViewsFilesDirPath()
-  {
-    return $this->pluginViewsDirPath().
-           DirNames::FILES_DIR_NAME.
-           \DIRECTORY_SEPARATOR;
   }
 
   /**
@@ -123,23 +125,11 @@ abstract class HummPlugin extends BaseClass
    *
    * @return string Plugin views helpers directory URL.
    */
-  public function pluginViewsHelpersDirUrl()
+  public function viewsHelpersUrl()
   {
-    return $this->pluginViewsDirUrl().
+    return $this->viewsUrl().
            DirNames::HELPERS_DIR_NAME.
            StrUtils::URL_SEPARATOR;
-  }
-
-  /**
-   * Retrieve the plugin views helpers directory path.
-   *
-   * @return string Plugin views helpers directory path.
-   */
-  public function pluginViewsHelpersDirPath()
-  {
-    return $this->pluginViewsDirPath().
-           DirNames::HELPERS_DIR_NAME.
-           \DIRECTORY_SEPARATOR;
   }
 
   /**
@@ -147,23 +137,11 @@ abstract class HummPlugin extends BaseClass
    *
    * @return string Plugin views styles directory URL.
    */
-  public function pluginViewsStylesDirUrl()
+  public function viewsStylesUrl()
   {
-    return $this->pluginViewsDirUrl().
+    return $this->viewsUrl().
            DirNames::STYLES_DIR_NAME.
            StrUtils::URL_SEPARATOR;
-  }
-
-  /**
-   * Retrieve the plugin views styles directory path.
-   *
-   * @return string Plugin views styles directory path.
-   */
-  public function pluginViewsStylesDirPath()
-  {
-    return $this->pluginViewsDirPath().
-           DirNames::STYLES_DIR_NAME.
-           \DIRECTORY_SEPARATOR;
   }
 
   /**
@@ -171,23 +149,11 @@ abstract class HummPlugin extends BaseClass
    *
    * @return string Plugin views images directory URL.
    */
-  public function pluginViewsImagesDirUrl()
+  public function viewsImagesUrl()
   {
-    return $this->pluginViewsDirUrl().
+    return $this->viewsUrl().
            DirNames::IMAGES_DIR_NAME.
            StrUtils::URL_SEPARATOR;
-  }
-
-  /**
-   * Retrieve the plugin views images directory path.
-   *
-   * @return string Plugin views images directory path.
-   */
-  public function pluginViewsImagesDirPath()
-  {
-    return $this->pluginViewsDirPath().
-           DirNames::IMAGES_DIR_NAME.
-           \DIRECTORY_SEPARATOR;
   }
 
   /**
@@ -195,11 +161,117 @@ abstract class HummPlugin extends BaseClass
    *
    * @return string Plugin views scripts directory URL.
    */
-  public function pluginViewsScriptsDirUrl()
+  public function viewsScriptsUrl()
   {
-    return $this->pluginViewsDirUrl().
+    return $this->viewsUrl().
            DirNames::SCRIPTS_DIR_NAME.
            StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin directory path.
+   *
+   * @return string Plugin directory path.
+   */
+  public function rootDir()
+  {
+    return $this->getClassDirPath();
+  }
+
+  /**
+   * Retrieve the plugin classes directory path.
+   *
+   * @return string Plugin classes directory path.
+   */
+  public function classesDir()
+  {
+    return $this->rootDir().
+           DirNames::CLASSES_DIR_NAME.
+           \DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin locale directory path.
+   *
+   * @return string Plugin locale directory path.
+   */
+  public function localeDir()
+  {
+    return $this->rootDir().
+           DirNames::LOCALE_DIR_NAME.
+           \DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin procedural directory path.
+   *
+   * @return string Plugin procedural directory path.
+   */
+  public function proceduralDir()
+  {
+    return $this->rootDir().
+           DirNames::PROCEDURAL_DIR_NAME.
+           \DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin views directory path.
+   *
+   * @return string Plugin views directory path.
+   */
+  public function viewsDir()
+  {
+    return $this->rootDir().
+           DirNames::VIEWS_DIR_NAME.
+           \DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin views files directory path.
+   *
+   * @return string Plugin views files directory path.
+   */
+  public function viewsFilesDir()
+  {
+    return $this->viewsDir().
+           DirNames::FILES_DIR_NAME.
+           \DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin views helpers directory path.
+   *
+   * @return string Plugin views helpers directory path.
+   */
+  public function viewsHelpersDir()
+  {
+    return $this->viewsDir().
+           DirNames::HELPERS_DIR_NAME.
+           \DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin views styles directory path.
+   *
+   * @return string Plugin views styles directory path.
+   */
+  public function viewsStylesDir()
+  {
+    return $this->viewsDir().
+           DirNames::STYLES_DIR_NAME.
+           \DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the plugin views images directory path.
+   *
+   * @return string Plugin views images directory path.
+   */
+  public function viewsImagesDir()
+  {
+    return $this->viewsDir().
+           DirNames::IMAGES_DIR_NAME.
+           \DIRECTORY_SEPARATOR;
   }
 
   /**
@@ -207,9 +279,9 @@ abstract class HummPlugin extends BaseClass
    *
    * @return string Plugin views scripts directory path.
    */
-  public function pluginViewsScriptsDirPath()
+  public function viewsScriptsDir()
   {
-    return $this->pluginViewsDirPath().
+    return $this->viewsDir().
            DirNames::SCRIPTS_DIR_NAME.
            \DIRECTORY_SEPARATOR;
   }

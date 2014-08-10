@@ -25,65 +25,15 @@ namespace Humm\System\Classes;
 class UserSites extends Unclonable
 {
   /**
-   * Define the Humm PHP main site directory name.
-   */
-  const MAIN_SITE_DIR = 'Main';
-
-  /**
    * Define an specific view class of the current site.
    */
-  const VIEW_CLASS = 'Humm\Sites\%s\Classes\%s%s';
+  const VIEW_CLASS_NAME = 'Humm\Sites\%s\Classes\%s%s';
 
   /**
    * Define the optional site shared view class.
    */
-  const SHARED_VIEW_CLASS = 'Humm\Sites\%s\Classes\SharedView';
-
-  /**
-   * Define the current site views URL relative path.
-   */
-  const VIEWS_URL_PATH = 'Humm/Sites/%s/Views/';
-
-  /**
-   * Define the current site views files URL relative path.
-   */
-  const VIEWS_FILES_URL_PATH = 'Humm/Sites/%s/Views/Files/';
-
-  /**
-   * Define the current site views images URL relative path.
-   */
-  const VIEWS_IMAGES_URL_PATH = 'Humm/Sites/%s/Views/Images/';
-
-  /**
-   * Define the current site views styles URL relative path.
-   */
-  const VIEWS_STYLES_URL_PATH = 'Humm/Sites/%s/Views/Styles/';
-
-  /**
-   * Define the current site views scripts URL relative path.
-   */
-  const VIEWS_SCRIPTS_URL_PATH = 'Humm/Sites/%s/Views/Scripts/';
-
-  /**
-   * Define the current site procedural directory URL relative path.
-   */
-  const PROCEDURAL_URL_PATH = 'Humm/Sites/%s/Procedural/';
-
-  /**
-   * Define the current site classes directory URL relative path.
-   */
-  const CLASSES_URL_PATH = 'Humm/Sites/%s/Classes/';
-
-  /**
-   * Define the current site config directory URL relative path.
-   */
-  const CONFIG_URL_PATH = 'Humm/Sites/%s/Config/';
-
-  /**
-   * Define the current site locale directory URL relative path.
-   */
-  const LOCALE_URL_PATH = 'Humm/Sites/%s/Locale/';
-
+  const SHARED_VIEW_CLASS_NAME = 'Humm\Sites\%s\Classes\SharedView';
+  
   /**
    * Store the current site directory name.
    *
@@ -104,7 +54,7 @@ class UserSites extends Unclonable
       $init = 1;
       self::$dirName = self::siteDirFromUrl();
       if (!self::siteDirExists(self::$dirName)) {
-        self::$dirName = self::MAIN_SITE_DIR;
+        self::$dirName = DirNames::MAIN_SITE_DIR_NAME;
       }
     }
   }
@@ -128,7 +78,7 @@ class UserSites extends Unclonable
    */
   public static function configUrlPath()
   {
-    return \sprintf(self::CONFIG_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::CONFIG_URL_PATH, self::$dirName);
   }
 
   /**
@@ -139,7 +89,7 @@ class UserSites extends Unclonable
    */
   public static function localeUrlPath()
   {
-    return \sprintf(self::LOCALE_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::LOCALE_URL_PATH, self::$dirName);
   }
 
   /**
@@ -150,7 +100,7 @@ class UserSites extends Unclonable
    */
   public static function classesUrlPath()
   {
-    return \sprintf(self::CLASSES_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::CLASSES_URL_PATH, self::$dirName);
   }
 
   /**
@@ -161,7 +111,7 @@ class UserSites extends Unclonable
    */
   public static function proceduralUrlPath()
   {
-    return \sprintf(self::PROCEDURAL_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::PROCEDURAL_URL_PATH, self::$dirName);
   }
 
   /**
@@ -172,7 +122,7 @@ class UserSites extends Unclonable
    */
   public static function viewsUrlPath()
   {
-    return \sprintf(self::VIEWS_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::VIEWS_URL_PATH, self::$dirName);
   }
 
   /**
@@ -183,7 +133,7 @@ class UserSites extends Unclonable
    */
   public static function viewsFilesUrlPath()
   {
-    return \sprintf(self::VIEWS_FILES_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::VIEWS_FILES_URL_PATH, self::$dirName);
   }
 
   /**
@@ -194,7 +144,7 @@ class UserSites extends Unclonable
    */
   public static function viewsImagesUrlPath()
   {
-    return \sprintf(self::VIEWS_IMAGES_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::VIEWS_IMAGES_URL_PATH, self::$dirName);
   }
 
   /**
@@ -205,7 +155,7 @@ class UserSites extends Unclonable
    */
   public static function viewsStylesUrlPath()
   {
-    return \sprintf(self::VIEWS_STYLES_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::VIEWS_STYLES_URL_PATH, self::$dirName);
   }
 
   /**
@@ -216,7 +166,7 @@ class UserSites extends Unclonable
    */
   public static function viewsScriptsUrlPath()
   {
-    return \sprintf(self::VIEWS_SCRIPTS_URL_PATH, self::$dirName);
+    return \sprintf(SitePaths::VIEWS_SCRIPTS_URL_PATH, self::$dirName);
   }
 
   /**
@@ -228,7 +178,7 @@ class UserSites extends Unclonable
    */
   public static function viewClassName($viewName)
   {
-    return \sprintf(self::VIEW_CLASS, self::$dirName,
+    return \sprintf(self::VIEW_CLASS_NAME, self::$dirName,
             $viewName, ViewsHandler::VIEW_CLASS_SUFFIX);
   }
 
@@ -240,7 +190,7 @@ class UserSites extends Unclonable
    */
   public static function sharedViewClassName()
   {
-    return \sprintf(self::SHARED_VIEW_CLASS, self::$dirName);
+    return \sprintf(self::SHARED_VIEW_CLASS_NAME, self::$dirName);
   }
 
   /**

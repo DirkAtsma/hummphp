@@ -33,6 +33,11 @@ class DirNames extends Unclonable
   const SITES_DIR_NAME = 'Sites';
 
   /**
+   * Define the Humm PHP main site directory name.
+   */
+  const MAIN_SITE_DIR_NAME = 'Main';
+
+  /**
    * Define the system directory name.
    */
   const SYSTEM_DIR_NAME = 'System';

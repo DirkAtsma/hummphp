@@ -388,7 +388,7 @@ class HummPlugins extends Unclonable
       $fileInfo->getPathName().
       \DIRECTORY_SEPARATOR.
       $fileInfo->getBasename().
-      FileExts::PHP_FILE_DOT_EXTENSION
+      FileExts::PHP_FILE_DOT_EXT
     );
   }
 
@@ -404,9 +404,9 @@ class HummPlugins extends Unclonable
     return \str_replace
     (
       array(DirPaths::root(), \DIRECTORY_SEPARATOR),
-      array(StrUtils::EMPTY_STRING, StrUtils::PHP_NAMESPACE_SEPARATOR),
+      array(StrUtils::EMPTY_STRING, StrUtils::PHP_NS_SEPARATOR),
       $pluginDir
-    ).StrUtils::PHP_NAMESPACE_SEPARATOR.\basename($pluginDir);
+    ).StrUtils::PHP_NS_SEPARATOR.\basename($pluginDir);
   }
 
   /**
@@ -419,7 +419,7 @@ class HummPlugins extends Unclonable
   private static function isValidPluginClass($className)
   {
     return \get_parent_class($className) ===
-     __NAMESPACE__.StrUtils::PHP_NAMESPACE_SEPARATOR.
+     __NAMESPACE__.StrUtils::PHP_NS_SEPARATOR.
       self::PLUGIN_BASE_CLASS;
   }
 }

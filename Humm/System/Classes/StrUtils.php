@@ -41,7 +41,7 @@ class StrUtils extends Unclonable
   /**
    * Define a PHP namespace separator.
    */
-  const PHP_NAMESPACE_SEPARATOR = '\\';
+  const PHP_NS_SEPARATOR = '\\';
 
   /**
    * Find if the specified string is empty.

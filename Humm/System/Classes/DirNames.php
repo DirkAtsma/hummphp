@@ -75,25 +75,25 @@ class DirNames extends Unclonable
   /**
    * Define the helpers name.
    */
-  const VIEWS_FILES_DIR_NAME = 'Files';
+  const FILES_DIR_NAME = 'Files';
 
   /**
    * Define the helpers name.
    */
-  const VIEWS_HELPERS_DIR_NAME = 'Helpers';
+  const HELPERS_DIR_NAME = 'Helpers';
 
   /**
    * Define the styles directory name.
    */
-  const VIEWS_STYLES_DIR_NAME = 'Styles';
+  const STYLES_DIR_NAME = 'Styles';
 
   /**
    * Define the scripts directory name.
    */
-  const VIEWS_SCRIPTS_DIR_NAME = 'Scripts';
+  const SCRIPTS_DIR_NAME = 'Scripts';
 
   /**
    * Define the images directory name.
    */
-  const VIEWS_IMAGES_DIR_NAME = 'Images';
+  const IMAGES_DIR_NAME = 'Images';
 }

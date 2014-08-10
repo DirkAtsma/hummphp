@@ -322,7 +322,7 @@ class ViewsHandler extends Unclonable
   private static function isValidViewSubclass($className)
   {
     return \is_subclass_of($className, __NAMESPACE__.
-     StrUtils::PHP_NAMESPACE_SEPARATOR.self::HUMM_VIEW_BASE_CLASS);
+     StrUtils::PHP_NS_SEPARATOR.self::HUMM_VIEW_BASE_CLASS);
   }
 
   /**
@@ -335,10 +335,10 @@ class ViewsHandler extends Unclonable
   private static function viewClassExists($viewClass)
   {
     $viewClassPath = \str_replace(
-      StrUtils::PHP_NAMESPACE_SEPARATOR,
+      StrUtils::PHP_NS_SEPARATOR,
       \DIRECTORY_SEPARATOR,
       $viewClass
-    ).FileExts::PHP_FILE_DOT_EXTENSION;
+    ).FileExts::PHP_FILE_DOT_EXT;
 
     return \file_exists($viewClassPath) &&
             \class_exists($viewClass);
@@ -415,7 +415,7 @@ class ViewsHandler extends Unclonable
   private static function isMainViewFile(\SplFileInfo $fileInfo)
   {
     return $fileInfo->isFile() &&
-      ($fileInfo->getExtension() === FileExts::PHP_FILE_EXTENSION);
+      ($fileInfo->getExtension() === FileExts::PHP_FILE_EXT);
   }
 
   /**
@@ -428,7 +428,7 @@ class ViewsHandler extends Unclonable
   private static function getMainViewName(\SplFileInfo $fileInfo)
   {
     return \str_replace(
-      FileExts::PHP_FILE_DOT_EXTENSION,
+      FileExts::PHP_FILE_DOT_EXT,
       StrUtils::EMPTY_STRING,
       $fileInfo->getBasename()
     );

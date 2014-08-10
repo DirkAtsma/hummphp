@@ -77,7 +77,7 @@ abstract class BaseClass extends \StdClass
   {
     return UrlPaths::root().
      \str_replace(
-       StrUtils::PHP_NAMESPACE_SEPARATOR,
+       StrUtils::PHP_NS_SEPARATOR,
        StrUtils::URL_SEPARATOR,
        \trim($class, \basename($class)));
   }
@@ -93,7 +93,7 @@ abstract class BaseClass extends \StdClass
   {
     return DirPaths::root().
      \str_replace(
-       StrUtils::PHP_NAMESPACE_SEPARATOR,
+       StrUtils::PHP_NS_SEPARATOR,
        \DIRECTORY_SEPARATOR,
        \trim($class, \basename($class)));
   }

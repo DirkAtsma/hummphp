@@ -36,6 +36,17 @@ class FilePaths extends Unclonable
   }
 
   /**
+   * Retrieve the system version file path.
+   *
+   * @static
+   * @return string System version file path.
+   */
+  public static function systemVersion()
+  {
+    return DirPaths::version().FileNames::VERSION_FILE_NAME;
+  }
+
+  /**
    * Retrieve the system text domain or MO file path.
    *
    * @static
@@ -48,18 +59,7 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           FileExts::MO_FILE_DOT_EXTENSION;
-  }
-
-  /**
-   * Retrieve the system version file path.
-   *
-   * @static
-   * @return string System version file path.
-   */
-  public static function systemVersion()
-  {
-    return DirPaths::version().FileNames::VERSION_FILE_NAME;
+           FileExts::MO_FILE_DOT_EXT;
   }
 
   /**
@@ -86,7 +86,7 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           FileExts::MO_FILE_DOT_EXTENSION;
+           FileExts::MO_FILE_DOT_EXT;
   }
 
   /**
@@ -97,7 +97,8 @@ class FilePaths extends Unclonable
    */
   public static function systemI18nFunctions()
   {
-    return DirPaths::systemProcedural().FileNames::I18N_FUNCTIONS_FILE_NAME;
+    return DirPaths::systemProcedural().
+            FileNames::I18N_FUNCTIONS_FILE_NAME;
   }
 
   /**
@@ -113,6 +114,6 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           FileExts::MO_FILE_DOT_EXTENSION;
+           FileExts::MO_FILE_DOT_EXT;
   }
 }

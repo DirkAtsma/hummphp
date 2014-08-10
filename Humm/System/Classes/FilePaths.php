@@ -32,7 +32,8 @@ class FilePaths extends Unclonable
    */
   public static function systemConfig()
   {
-    return DirPaths::systemConfig().FileNames::CONFIG_FILE_NAME;
+    return DirPaths::systemConfig().
+            FileNames::CONFIG_FILE_NAME;
   }
 
   /**
@@ -43,7 +44,8 @@ class FilePaths extends Unclonable
    */
   public static function systemVersion()
   {
-    return DirPaths::version().FileNames::VERSION_FILE_NAME;
+    return DirPaths::version().
+            FileNames::VERSION_FILE_NAME;
   }
 
   /**
@@ -70,7 +72,8 @@ class FilePaths extends Unclonable
    */
   public static function siteConfig()
   {
-    return DirPaths::siteConfig().FileNames::CONFIG_FILE_NAME;
+    return DirPaths::siteConfig().
+            FileNames::CONFIG_FILE_NAME;
   }
 
   /**

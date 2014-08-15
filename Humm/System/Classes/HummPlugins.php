@@ -24,120 +24,6 @@ namespace Humm\System\Classes;
 class HummPlugins extends Unclonable
 {
   /**
-   * Define the output buffer plugin filter ID.
-   *
-   * This filter is executed from OutputBuffer::filter()
-   * and provide as the filter content with the response
-   * buffer to be filtered before sent to the user.
-   *
-   * A plugin cannot print anything under this filter
-   * execution, but can filter the content or do other
-   * taks but never print anything.
-   *
-   * Like in any other filter, the plugin must return
-   * theh filter arguments content, filtered or not, in
-   * order to maintain the chain.
-   */
-  const FILTER_OUTPUT_BUFFER = 1001;
-
-  /**
-   * Define the view template plugin filter ID.
-   *
-   * Executed from ViewsHandler::filterTemplate() this
-   * filter provide as the filter content with an HtmlTemplate
-   * object instance which can be filtered.
-   *
-   * This means that the plugin can update or setup
-   * new HtmlTemplate variables to put it availables into
-   * the HtmlTemplate associated view.
-   *
-   * Like in any other filter, the plugin must return
-   * theh filter arguments content, filtered or not, in
-   * order to maintain the chain.
-   */
-  const FILTER_VIEW_TEMPLATE = 1002;
-
-  /**
-   * Define the database SQL plugin filter ID.
-   *
-   * Executed from PDOExtended::translateSQL() this filter
-   * provide as the filter content with an SQL statement just
-   * before are executed agains the database.
-   *
-   * This means that the plugin can filter the SQL statement
-   * in some way, although this filter is mainly intended to
-   * provide a way to translate SQL statements into specific
-   * database drivers statements.
-   *
-   * Like in any other filter, the plugin must return
-   * theh filter arguments content, filtered or not, in
-   * order to maintain the chain.
-   */
-  const FILTER_DATABASE_SQL = 10003;
-
-  /**
-   * Define the plugins loaded plugin action ID.
-   *
-   * Executed from HummPlugins::loadPlugins() (this class)
-   * this action tell the plugins that all the available
-   * plugins has been loaded.
-   *
-   * A plugin can use this action to make some needed taks
-   * which are doing in an early system boot strap state,
-   * before the output buffer are started.
-   */
-  const ACTION_PLUGINS_LOADED = 2001;
-
-  /**
-   * Define the script shutdown plugin action ID.
-   *
-   * Executed from ErrorHandler::onShutdown() this action
-   * inform the plugins when the PHP script shutdown occur,
-   * after the appropiate user response are sent.
-   *
-   * A plugin can use this action to make some needed taks
-   * which are doing in an final system boot strap state,
-   * after the output buffer has been flush.
-   */
-  const ACTION_SCRIPT_SHUTDOWN = 2002;
-
-  /**
-   * Define the check requeriments plugin action ID.
-   *
-   * Executed from Requeriments::pluginsCheck() this action
-   * allows the plugins to check their own requriments and
-   * trigger an error if the requeriments are not supplied.
-   *
-   * The plugins can react to this action calling one or more
-   * times the PHP \trigger_error() function providing the
-   * appropiate check requeriments errors information:
-   *
-   * Do not print anything to the buffer output: just use the
-   * \trigger_error() action and let the system to inform the
-   * user about the plugin check requeriments errors.
-   *
-   */
-  const ACTION_CHECK_REQUERIMENTS = 2003;
-
-  /**
-   * Define the connected database plugin action ID.
-   *
-   * Executed from Requeriments::pluginsCheck() this action
-   * allows the plugins to check their own requriments and
-   * trigger an error if the requeriments are not supplied.
-   *
-   * The plugins can react to this action calling one or more
-   * times the PHP \trigger_error() function providing the
-   * appropiate check requeriments errors information:
-   *
-   * Do not print anything to the buffer output: just use the
-   * \trigger_error() action and let the system to inform the
-   * user about the plugin check requeriments errors.
-   *
-   */
-  const ACTION_CONNECTED_DATABASE = 2004;
-
-  /**
    * Define the plugins lower priority.
    */
   const PLUGIN_PRIORITY_LOWER = 3001;
@@ -334,7 +220,9 @@ class HummPlugins extends Unclonable
       }
     }
     // Notify the plugins
-    self::execSimpleAction(self::ACTION_PLUGINS_LOADED);
+    self::execSimpleAction(
+     PluginActions::PLUGINS_LOADED
+    );
   }
 
   /**

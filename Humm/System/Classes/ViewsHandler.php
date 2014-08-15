@@ -82,7 +82,7 @@ class ViewsHandler extends Unclonable
   {
     \ob_start(function($buffer){
       return HummPlugins::applySimpleFilter(
-        HummPlugins::FILTER_OUTPUT_BUFFER, $buffer);
+        PluginFilters::BUFFER_OUTPUT, $buffer);
     });
   }
 
@@ -221,7 +221,7 @@ class ViewsHandler extends Unclonable
   private static function filterTemplate(HtmlTemplate $template)
   {
     HummPlugins::applySimpleFilter(
-     HummPlugins::FILTER_VIEW_TEMPLATE, $template);
+     PluginFilters::VIEW_TEMPLATE, $template);
   }
 
   /**

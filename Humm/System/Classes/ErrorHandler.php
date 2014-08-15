@@ -116,7 +116,7 @@ class ErrorHandler extends Unclonable
       self::displayView();
     }
     HummPlugins::execSimpleAction(
-     HummPlugins::ACTION_SCRIPT_SHUTDOWN);
+     PluginActions::SCRIPT_SHUTDOWN);
   }
 
   /**

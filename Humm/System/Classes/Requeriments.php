@@ -39,7 +39,7 @@ class Requeriments extends Unclonable
       // Order matter here
       self::systemCheck();
       HummPlugins::execSimpleAction(
-       HummPlugins::ACTION_CHECK_REQUERIMENTS);
+       PluginActions::CHECK_REQUERIMENTS);
     }
   }
 

@@ -558,7 +558,7 @@ class PDOExtended extends \PDO
     (
       FilterArguments::CONTENT => $sql,
       FilterArguments::BUNDLE => $params,
-      FilterArguments::FILTER => HummPlugins::FILTER_DATABASE_SQL
+      FilterArguments::FILTER => PluginFilters::DATABASE_SQL
     )));
   }
 }

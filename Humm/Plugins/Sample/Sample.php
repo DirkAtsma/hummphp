@@ -13,7 +13,8 @@ namespace Humm\Plugins\Sample;
 
 use
   \Humm\System\Classes\HummPlugin,
-  \Humm\System\Classes\HummPlugins,
+  \Humm\System\Classes\PluginFilters,
+  \Humm\System\Classes\PluginActions,
   \Humm\System\Classes\FilterArguments,
   \Humm\System\Classes\ActionArguments;
 
@@ -22,13 +23,13 @@ class Sample extends HummPlugin
   public function execAction(ActionArguments $arguments)
   {
     switch ($arguments->action) {
-      case HummPlugins::ACTION_PLUGINS_LOADED:
+      case PluginActions::PLUGINS_LOADED:
         break;
-      case HummPlugins::ACTION_CHECK_REQUERIMENTS:
+      case PluginActions::CHECK_REQUERIMENTS:
         break;
-      case HummPlugins::ACTION_CONNECTED_DATABASE:
+      case PluginActions::DATABASE_CONNECTED:
         break;
-      case HummPlugins::ACTION_SCRIPT_SHUTDOWN:
+      case PluginActions::SCRIPT_SHUTDOWN:
         break;
     }
   }
@@ -36,11 +37,11 @@ class Sample extends HummPlugin
   public function applyFilter(FilterArguments $arguments)
   {
     switch ($arguments->filter) {
-      case HummPlugins::FILTER_DATABASE_SQL:
+      case PluginFilters::DATABASE_SQL:
         break;
-      case HummPlugins::FILTER_VIEW_TEMPLATE:
+      case PluginFilters::VIEW_TEMPLATE:
         break;
-      case HummPlugins::FILTER_OUTPUT_BUFFER:
+      case PluginFilters::BUFFER_OUTPUT:
         break;
     }
     // Filtered or not

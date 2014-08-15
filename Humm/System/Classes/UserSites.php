@@ -27,12 +27,12 @@ class UserSites extends Unclonable
   /**
    * Define an specific view class of the current site.
    */
-  const VIEW_CLASS_NAME = 'Humm\Sites\%s\Classes\%s%s';
+  const VIEW_CLASS = 'Humm\Sites\%s\Classes\%s%s';
 
   /**
    * Define the optional site shared view class.
    */
-  const SHARED_VIEW_CLASS_NAME = 'Humm\Sites\%s\Classes\SharedView';
+  const SHARED_VIEW_CLASS = 'Humm\Sites\%s\Classes\SharedView';
   
   /**
    * Store the current site directory name.
@@ -178,7 +178,7 @@ class UserSites extends Unclonable
    */
   public static function viewClassName($viewName)
   {
-    return \sprintf(self::VIEW_CLASS_NAME, self::$dirName,
+    return \sprintf(self::VIEW_CLASS, self::$dirName,
             $viewName, ViewsHandler::VIEW_CLASS_SUFFIX);
   }
 
@@ -190,7 +190,7 @@ class UserSites extends Unclonable
    */
   public static function sharedViewClassName()
   {
-    return \sprintf(self::SHARED_VIEW_CLASS_NAME, self::$dirName);
+    return \sprintf(self::SHARED_VIEW_CLASS, self::$dirName);
   }
 
   /**

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file implement the MOFile system class.
+ * This file implement the MOFileParser system class.
  *
  * This class are used by the system Languages to parse
  * text domain MO files and extract their string messages.
@@ -15,7 +15,7 @@
 namespace Humm\System\Classes;
 
 /**
- * System MOFile class implementation.
+ * System MOFileParser class implementation.
  *
  * This class is intented to be used internally by the Languages
  * system class and user sites code do not need to use it.
@@ -23,7 +23,7 @@ namespace Humm\System\Classes;
  * Credits for this class code go to Danilo Segan <danilo@kvota.net>
  * which writen it (if I am not wrong) for the PHP-Gettext project.
  */
-class MOFile extends Unclonable
+class MOFileParser extends Unclonable
 {
   /**
    * Extract the string messages from an MO file.

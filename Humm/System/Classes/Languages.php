@@ -287,7 +287,7 @@ class Languages extends Unclonable
   {
     $result = true;
     if (!\in_array($moFilePath, self::$moFiles)) {
-      if (MOFile::parseFile($moFilePath,
+      if (MOFileParser::parseFile($moFilePath,
        $textDomain, self::$messages, self::$pluralFunc)) {
          // To avoid load twice
          self::$moFiles[] = $moFilePath;

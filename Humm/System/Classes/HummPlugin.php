@@ -47,7 +47,7 @@ abstract class HummPlugin extends BaseClass
    */
   public function priority()
   {
-    return HummPlugins::PLUGIN_PRIORITY_LOWER;
+    return PluginPriorities::LOWER;
   }
 
   /**

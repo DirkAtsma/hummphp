@@ -24,36 +24,6 @@ namespace Humm\System\Classes;
 class HummPlugins extends Unclonable
 {
   /**
-   * Define the plugins lower priority.
-   */
-  const PLUGIN_PRIORITY_LOWER = 3001;
-
-  /**
-   * Define the plugins low priority.
-   */
-  const PLUGIN_PRIORITY_LOW = 3002;
-
-  /**
-   * Define the plugins normal priority.
-   */
-  const PLUGIN_PRIORITY_NORMAL = 3003;
-
-  /**
-   * Define the plugins higher priority.
-   */
-  const PLUGIN_PRIORITY_HIGHER = 3004;
-
-  /**
-   * Define the plugins highest priority.
-   */
-  const PLUGIN_PRIORITY_HIGHEST = 3005;
-
-  /**
-   * Define the plugins critical priority.
-   */
-  const PLUGIN_PRIORITY_CRITICAL = 3006;
-
-  /**
    * Define the plugins base class name.
    */
   const PLUGIN_BASE_CLASS = 'HummPlugin';

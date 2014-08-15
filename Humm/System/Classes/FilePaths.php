@@ -33,7 +33,7 @@ class FilePaths extends Unclonable
   public static function systemConfig()
   {
     return DirPaths::systemConfig().
-            FileNames::CONFIG_FILE_NAME;
+            FileNames::CONFIG;
   }
 
   /**
@@ -45,7 +45,7 @@ class FilePaths extends Unclonable
   public static function systemVersion()
   {
     return DirPaths::version().
-            FileNames::VERSION_FILE_NAME;
+            FileNames::VERSION;
   }
 
   /**
@@ -73,7 +73,7 @@ class FilePaths extends Unclonable
   public static function siteConfig()
   {
     return DirPaths::siteConfig().
-            FileNames::CONFIG_FILE_NAME;
+            FileNames::CONFIG;
   }
 
   /**
@@ -101,7 +101,7 @@ class FilePaths extends Unclonable
   public static function systemI18nFunctions()
   {
     return DirPaths::systemProcedural().
-            FileNames::I18N_FUNCTIONS_FILE_NAME;
+            FileNames::I18N_FUNCTIONS;
   }
 
   /**

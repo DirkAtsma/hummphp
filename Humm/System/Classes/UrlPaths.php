@@ -46,7 +46,7 @@ class UrlPaths extends Unclonable
       self::$root = ServerInfo::url().
       \str_replace
       (
-        FileNames::PHP_INDEX_FILE_NAME,
+        FileNames::PHP_INDEX,
         StrUtils::EMPTY_STRING,
         ServerInfo::script()
       );

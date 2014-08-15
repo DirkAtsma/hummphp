@@ -25,20 +25,20 @@ class FileNames extends Unclonable
   /**
    * Define the configurations files name.
    */
-  const CONFIG_FILE_NAME = 'Config.php';
+  const CONFIG = 'Config.php';
 
   /**
    * Define the system version file name.
    */
-  const VERSION_FILE_NAME = 'Version.php';
+  const VERSION = 'Version.php';
 
   /**
    * Define the system I18n functions file name.
    */
-  const I18N_FUNCTIONS_FILE_NAME = 'I18nFunctions.php';
+  const I18N_FUNCTIONS = 'I18nFunctions.php';
 
   /**
-   * Define an index PHP file: like Humm PHP entry point file name.
+   * Define an index PHP file: like Humm PHP entry point.
    */
-  const PHP_INDEX_FILE_NAME = 'index.php';
+  const PHP_INDEX = 'index.php';
 }

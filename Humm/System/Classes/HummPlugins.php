@@ -31,17 +31,17 @@ class HummPlugins extends Unclonable
   /**
    * Define the plugins execute action method.
    */
-  const PLUGIN_EXEC_ACTION = 'execAction';
+  const EXEC_ACTION_METHOD = 'execAction';
 
   /**
    * Define the plugins apply filter method.
    */
-  const PLUGIN_APPLY_FILTER = 'applyFilter';
+  const APPLY_FILTER_METHOD = 'applyFilter';
 
   /**
    * Define the plugins get priority method.
    */
-  const PLUGIN_GET_PRIORITY = 'getPriority';
+  const GET_PRIORITY_METHOD = 'getPriority';
 
   /**
    * Define the active plugins separator.
@@ -142,10 +142,10 @@ class HummPlugins extends Unclonable
   public static function applyFilter(FilterArguments $arguments)
   {
     foreach (self::$plugins as $plugin) {
-      if (\method_exists($plugin, self::PLUGIN_APPLY_FILTER)) {
+      if (\method_exists($plugin, self::APPLY_FILTER_METHOD)) {
         $arguments->content = \call_user_func
         (
-          array($plugin, self::PLUGIN_APPLY_FILTER),
+          array($plugin, self::APPLY_FILTER_METHOD),
           $arguments
         );
       }
@@ -166,10 +166,10 @@ class HummPlugins extends Unclonable
   public static function execAction(ActionArguments $arguments)
   {
     foreach (self::$plugins as $plugin) {
-      if (\method_exists($plugin, self::PLUGIN_EXEC_ACTION)) {
+      if (\method_exists($plugin, self::EXEC_ACTION_METHOD)) {
         \call_user_func
         (
-          array($plugin, self::PLUGIN_EXEC_ACTION),
+          array($plugin, self::EXEC_ACTION_METHOD),
           $arguments
         );
       }

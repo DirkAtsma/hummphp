@@ -199,8 +199,8 @@ class HtmlTemplate extends BaseClass
   {
     $result = $aViewName;
     foreach ($this->viewsDirs as $path) {
-      if (\file_exists($path.$aViewName.  FileExts::PHP_FILE_DOT_EXT)) {
-        $result = $path.$aViewName.FileExts::PHP_FILE_DOT_EXT;
+      if (\file_exists($path.$aViewName.  FileExts::DOT_PHP)) {
+        $result = $path.$aViewName.FileExts::DOT_PHP;
       }
     }
     return $result;

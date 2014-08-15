@@ -61,7 +61,7 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           FileExts::MO_FILE_DOT_EXT;
+           FileExts::DOT_MO;
   }
 
   /**
@@ -89,7 +89,7 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           FileExts::MO_FILE_DOT_EXT;
+           FileExts::DOT_MO;
   }
 
   /**
@@ -117,6 +117,6 @@ class FilePaths extends Unclonable
            $langCode.
            \DIRECTORY_SEPARATOR.
            $langCode.
-           FileExts::MO_FILE_DOT_EXT;
+           FileExts::DOT_MO;
   }
 }

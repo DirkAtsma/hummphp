@@ -25,15 +25,15 @@ class FileExts extends Unclonable
   /**
    * Define a PHP file extension.
    */
-  const PHP_FILE_EXT = 'php';
+  const PHP = 'php';
 
   /**
    * Define a MO file dotted extension.
    */
-  const MO_FILE_DOT_EXT = '.mo';
+  const DOT_MO = '.mo';
 
   /**
    * Define a PHP file dotted extension.
    */
-  const PHP_FILE_DOT_EXT = '.php';
+  const DOT_PHP = '.php';
 }

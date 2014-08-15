@@ -338,7 +338,7 @@ class ViewsHandler extends Unclonable
       StrUtils::PHP_NS_SEPARATOR,
       \DIRECTORY_SEPARATOR,
       $viewClass
-    ).FileExts::PHP_FILE_DOT_EXT;
+    ).FileExts::DOT_PHP;
 
     return \file_exists($viewClassPath) &&
             \class_exists($viewClass);
@@ -415,7 +415,7 @@ class ViewsHandler extends Unclonable
   private static function isMainViewFile(\SplFileInfo $fileInfo)
   {
     return $fileInfo->isFile() &&
-      ($fileInfo->getExtension() === FileExts::PHP_FILE_EXT);
+      ($fileInfo->getExtension() === FileExts::PHP);
   }
 
   /**
@@ -428,7 +428,7 @@ class ViewsHandler extends Unclonable
   private static function getMainViewName(\SplFileInfo $fileInfo)
   {
     return \str_replace(
-      FileExts::PHP_FILE_DOT_EXT,
+      FileExts::DOT_PHP,
       StrUtils::EMPTY_STRING,
       $fileInfo->getBasename()
     );

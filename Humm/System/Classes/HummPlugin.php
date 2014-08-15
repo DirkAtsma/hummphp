@@ -68,7 +68,7 @@ abstract class HummPlugin extends BaseClass
   public function classesUrl()
   {
     return $this->rootUrl().
-           DirNames::CLASSES_DIR_NAME.
+           DirNames::CLASSES.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -80,7 +80,7 @@ abstract class HummPlugin extends BaseClass
   public function localeUrl()
   {
     return $this->rootUrl().
-           DirNames::LOCALE_DIR_NAME.
+           DirNames::LOCALE.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -92,7 +92,7 @@ abstract class HummPlugin extends BaseClass
   public function proceduralUrl()
   {
     return $this->rootUrl().
-           DirNames::PROCEDURAL_DIR_NAME.
+           DirNames::PROCEDURAL.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -104,7 +104,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsUrl()
   {
     return $this->rootUrl().
-           DirNames::VIEWS_DIR_NAME.
+           DirNames::VIEWS.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -116,7 +116,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsFilesUrl()
   {
     return $this->viewsUrl().
-           DirNames::FILES_DIR_NAME.
+           DirNames::FILES.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -128,7 +128,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsHelpersUrl()
   {
     return $this->viewsUrl().
-           DirNames::HELPERS_DIR_NAME.
+           DirNames::HELPERS.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -140,7 +140,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsStylesUrl()
   {
     return $this->viewsUrl().
-           DirNames::STYLES_DIR_NAME.
+           DirNames::STYLES.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -152,7 +152,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsImagesUrl()
   {
     return $this->viewsUrl().
-           DirNames::IMAGES_DIR_NAME.
+           DirNames::IMAGES.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -164,7 +164,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsScriptsUrl()
   {
     return $this->viewsUrl().
-           DirNames::SCRIPTS_DIR_NAME.
+           DirNames::SCRIPTS.
            StrUtils::URL_SEPARATOR;
   }
 
@@ -186,7 +186,7 @@ abstract class HummPlugin extends BaseClass
   public function classesDir()
   {
     return $this->rootDir().
-           DirNames::CLASSES_DIR_NAME.
+           DirNames::CLASSES.
            \DIRECTORY_SEPARATOR;
   }
 
@@ -198,7 +198,7 @@ abstract class HummPlugin extends BaseClass
   public function localeDir()
   {
     return $this->rootDir().
-           DirNames::LOCALE_DIR_NAME.
+           DirNames::LOCALE.
            \DIRECTORY_SEPARATOR;
   }
 
@@ -210,7 +210,7 @@ abstract class HummPlugin extends BaseClass
   public function proceduralDir()
   {
     return $this->rootDir().
-           DirNames::PROCEDURAL_DIR_NAME.
+           DirNames::PROCEDURAL.
            \DIRECTORY_SEPARATOR;
   }
 
@@ -222,7 +222,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsDir()
   {
     return $this->rootDir().
-           DirNames::VIEWS_DIR_NAME.
+           DirNames::VIEWS.
            \DIRECTORY_SEPARATOR;
   }
 
@@ -234,7 +234,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsFilesDir()
   {
     return $this->viewsDir().
-           DirNames::FILES_DIR_NAME.
+           DirNames::FILES.
            \DIRECTORY_SEPARATOR;
   }
 
@@ -246,7 +246,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsHelpersDir()
   {
     return $this->viewsDir().
-           DirNames::HELPERS_DIR_NAME.
+           DirNames::HELPERS.
            \DIRECTORY_SEPARATOR;
   }
 
@@ -258,7 +258,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsStylesDir()
   {
     return $this->viewsDir().
-           DirNames::STYLES_DIR_NAME.
+           DirNames::STYLES.
            \DIRECTORY_SEPARATOR;
   }
 
@@ -270,7 +270,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsImagesDir()
   {
     return $this->viewsDir().
-           DirNames::IMAGES_DIR_NAME.
+           DirNames::IMAGES.
            \DIRECTORY_SEPARATOR;
   }
 
@@ -282,7 +282,7 @@ abstract class HummPlugin extends BaseClass
   public function viewsScriptsDir()
   {
     return $this->viewsDir().
-           DirNames::SCRIPTS_DIR_NAME.
+           DirNames::SCRIPTS.
            \DIRECTORY_SEPARATOR;
   }
 }

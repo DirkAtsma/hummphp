@@ -54,7 +54,7 @@ class UserSites extends Unclonable
       $init = 1;
       self::$dirName = self::siteDirFromUrl();
       if (!self::siteDirExists(self::$dirName)) {
-        self::$dirName = DirNames::MAIN_SITE_DIR_NAME;
+        self::$dirName = DirNames::MAIN_SITE;
       }
     }
   }
@@ -254,7 +254,7 @@ class UserSites extends Unclonable
   private static function siteDirExists($siteDirName)
   {
     return !StrUtils::isTrimEmpty($siteDirName) &&
-             \is_dir(DirPaths::humm().DirNames::SITES_DIR_NAME.
+             \is_dir(DirPaths::humm().DirNames::SITES.
               \DIRECTORY_SEPARATOR.$siteDirName);
   }
 }

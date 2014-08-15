@@ -25,80 +25,80 @@ class DirNames extends Unclonable
   /**
    * Define the root directory name.
    */
-  const HUMM_DIR_NAME = 'Humm';
+  const HUMM = 'Humm';
 
   /**
    * Define the sites directory name.
    */
-  const SITES_DIR_NAME = 'Sites';
+  const SITES = 'Sites';
 
   /**
    * Define the Humm PHP main site directory name.
    */
-  const MAIN_SITE_DIR_NAME = 'Main';
+  const MAIN_SITE = 'Main';
 
   /**
    * Define the system directory name.
    */
-  const SYSTEM_DIR_NAME = 'System';
+  const SYSTEM = 'System';
 
   /**
    * Define the system classes name.
    */
-  const CLASSES_DIR_NAME = 'Classes';
+  const CLASSES = 'Classes';
 
   /**
    * Define the config directory name.
    */
-  const CONFIG_DIR_NAME = 'Config';
+  const CONFIG = 'Config';
 
   /**
    * Define the locale directory name.
    */
-  const LOCALE_DIR_NAME = 'Locale';
+  const LOCALE = 'Locale';
 
   /**
    * Define the plugins directory name.
    */
-  const PLUGINS_DIR_NAME = 'Plugins';
+  const PLUGINS = 'Plugins';
 
   /**
    * Define the version directory name.
    */
-  const VERSION_DIR_NAME = 'Version';
+  const VERSION = 'Version';
 
   /**
    * Define the procedural directory name.
    */
-  const PROCEDURAL_DIR_NAME = 'Procedural';
+  const PROCEDURAL = 'Procedural';
 
   /**
    * Define the views directory name.
    */
-  const VIEWS_DIR_NAME = 'Views';
+  const VIEWS = 'Views';
 
   /**
    * Define the helpers name.
    */
-  const FILES_DIR_NAME = 'Files';
+  const FILES = 'Files';
 
   /**
    * Define the helpers name.
    */
-  const HELPERS_DIR_NAME = 'Helpers';
+  const HELPERS = 'Helpers';
 
   /**
    * Define the styles directory name.
    */
-  const STYLES_DIR_NAME = 'Styles';
+  const STYLES = 'Styles';
 
   /**
    * Define the scripts directory name.
    */
-  const SCRIPTS_DIR_NAME = 'Scripts';
+  const SCRIPTS = 'Scripts';
 
   /**
    * Define the images directory name.
    */
-  const IMAGES_DIR_NAME = 'Images';
+  const IMAGES = 'Images';
 }

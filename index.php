@@ -4,7 +4,7 @@
  * This file implement the Humm PHP entry point.
  *
  * Every user request to a Humm PHP managed site
- * end here and then Humm PHP initiates boot strap.
+ * end here and then Humm initiates the boot strap.
  *
  * @author D. Esperalta <info@davidesperalta.com>
  * @link http://www.hummphp.com/ Humm PHP website

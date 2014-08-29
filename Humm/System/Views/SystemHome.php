@@ -16,4 +16,5 @@
   title="<?php e('Visit the Humm PHP website') ?>">http://www.hummphp.com</a>
 </p>
 
-<?php $this->displayView('SystemFooter') ?>
+<?php $this->displayView('SystemPreFooter') ?>
+<?php $this->displayView('SystemPosFooter') ?>

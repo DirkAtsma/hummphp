@@ -44,4 +44,5 @@
 
 <?php endif; ?>
 
-<?php $this->displayView('SystemFooter') ?>
+<?php $this->displayView('SystemPreFooter') ?>
+<?php $this->displayView('SystemPosFooter') ?>

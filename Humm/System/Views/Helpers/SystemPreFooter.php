@@ -14,6 +14,4 @@
    </footer>
   </div>
   <!-- /contentsWrapper -->
-
- </body>
-</html>
+  

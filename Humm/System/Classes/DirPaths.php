@@ -144,6 +144,18 @@ class DirPaths extends Unclonable
   }
 
   /**
+   * Retrieve the system classes directory path.
+   *
+   * @static
+   * @return string System classes absolute directory path.
+   */
+  public static function systemClasses()
+  {
+    return self::system().
+            DirNames::CLASSES.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
    * Retrieve the system procedural directory path.
    *
    * @static
@@ -249,6 +261,18 @@ class DirPaths extends Unclonable
   {
     return self::site().
             DirNames::LOCALE.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve a site classes directory path.
+   *
+   * @static
+   * @return string Site classes absolute directory path.
+   */
+  public static function siteClasses()
+  {
+    return self::site().
+            DirNames::CLASSES.\DIRECTORY_SEPARATOR;
   }
 
   /**

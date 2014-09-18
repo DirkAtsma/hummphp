@@ -19,4 +19,4 @@
 /**
  * Define the release date of Humm PHP.
  */
-\define('HUMM_VERSION_RELEASE', '09/07/2014');
+\define('HUMM_VERSION_RELEASE', '09/18/2014');

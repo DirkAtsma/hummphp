@@ -31,14 +31,14 @@ class BootStrap extends Unclonable
    *
    * @static
    * @staticvar int $init Prevent twice execution.
-   * @param string $dir Humm PHP root directory path.
+   * @param string $rootDir Humm PHP root directory path.
    */
-  public static function init($dir)
+  public static function init($rootDir)
   {
     static $init = 0;
     if (!$init) {
       $init = 1;
-      DirPaths::init($dir);
+      DirPaths::init($rootDir);
       // After DirPaths
       ErrorHandler::init();
       UserSites::init();

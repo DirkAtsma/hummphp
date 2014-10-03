@@ -610,7 +610,7 @@ class Database extends Unclonable
   {
     if (self::connect(\HUMM_DATABASE_DSN,
      \HUMM_DATABASE_USER, \HUMM_DATABASE_PASS)) {
-       HummPlugins::execSimpleAction(HummPlugins::DATABASE_CONNECTED);
+       HummPlugins::execSimpleAction(PluginActions::DATABASE_CONNECTED);
     }
   }
 }

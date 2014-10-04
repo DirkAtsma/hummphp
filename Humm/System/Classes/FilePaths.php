@@ -93,6 +93,22 @@ class FilePaths extends Unclonable
   }
 
   /**
+   * Retrieve the sites shared text domain or MO file path.
+   *
+   * @static
+   * @return string sites shared text domain or MO file path.
+   */
+  public static function sitesSharedTextDomain()
+  {
+    $langCode = Languages::getCurrentLanguage();
+    return DirPaths::sitesSharedLocale().
+           $langCode.
+           \DIRECTORY_SEPARATOR.
+           $langCode.
+           FileExts::DOT_MO;
+  }
+
+  /**
    * Retrieve the system I18n functions file path.
    *
    * @static

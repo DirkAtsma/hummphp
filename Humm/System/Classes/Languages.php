@@ -109,6 +109,7 @@ class Languages extends Unclonable
       self::$langsMap = LanguagesMap::getMap();
       self::$langCodes = LanguagesMap::getCodes();
       self::loadTextDomain(FilePaths::siteTextDomain());
+      self::loadTextDomain(FilePaths::sitesSharedTextDomain());
       self::loadTextDomain(FilePaths::systemTextDomain());
     }
   }

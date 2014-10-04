@@ -26,6 +26,11 @@ Humm works in any webserver which run PHP 5.4 or later.
 Use the same Humm PHP base code to run various sites.
 
 
+### Sites shared support ###
+
+Reuse between sites views, helpers, scripts, styles, etc.
+
+
 ### I18n and L10n support ###
 
 Translate your sites using standard GetText and PO files.

@@ -18,7 +18,7 @@ Works without any configuration nor installation process.
 
 ### Server independent ###
 
-Humm works in any webserver which run PHP 5.4 or later.
+Humm works in any webserver which run PHP 5.6 or later.
 
 
 ### Multisites support ###

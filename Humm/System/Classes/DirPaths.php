@@ -371,4 +371,125 @@ class DirPaths extends Unclonable
     return self::siteViews().
             DirNames::STYLES.\DIRECTORY_SEPARATOR;
   }
+
+  /**
+   * Retrieve the sites shared directory path.
+   *
+   * @static
+   * @return string Sites shared absolute directory path.
+   */
+  public static function sitesShared()
+  {
+    return self::humm().
+            DirNames::SITES.\DIRECTORY_SEPARATOR.
+            DirNames::SHARED.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared locale directory path.
+   *
+   * @static
+   * @return string Sites shared locale absolute directory path.
+   */
+  public static function sitesSharedLocale()
+  {
+    return self::sitesShared().
+            DirNames::LOCALE.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared classes directory path.
+   *
+   * @static
+   * @return string Sites shared classes absolute directory path.
+   */
+  public static function sitesSharedClasses()
+  {
+    return self::sitesShared().
+            DirNames::CLASSES.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared procedural directory path.
+   *
+   * @static
+   * @return string Sites shared procedural absolute directory path.
+   */
+  public static function sitesSharedProcedural()
+  {
+    return self::sitesShared().
+            DirNames::PROCEDURAL.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared views directory path.
+   *
+   * @static
+   * @return string Sites shared views absolute directory path.
+   */
+  public static function sitesSharedViews()
+  {
+    return self::sitesShared().
+            DirNames::VIEWS.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared files directory path.
+   *
+   * @static
+   * @return string Sites shared files absolute directory path.
+   */
+  public static function sitesSharedViewsFiles()
+  {
+    return self::sitesSharedViews().
+            DirNames::FILES.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared helpers directory path.
+   *
+   * @static
+   * @return string Sites shared helpers absolute directory path.
+   */
+  public static function sitesSharedViewsHelpers()
+  {
+    return self::sitesSharedViews().
+            DirNames::HELPERS.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared images directory path.
+   *
+   * @static
+   * @return string Sites shared images absolute directory path.
+   */
+  public static function sitesSharedViewsImages()
+  {
+    return self::sitesSharedViews().
+            DirNames::IMAGES.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared styles directory path.
+   *
+   * @static
+   * @return string Sites shared styles absolute directory path.
+   */
+  public static function sitesSharedViewsStyles()
+  {
+    return self::sitesSharedViews().
+            DirNames::STYLES.\DIRECTORY_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the sites shared scripts directory path.
+   *
+   * @static
+   * @return string Sites shared scripts absolute directory path.
+   */
+  public static function sitesSharedViewsScripts()
+  {
+    return self::sitesSharedViews().
+            DirNames::SCRIPTS.\DIRECTORY_SEPARATOR;
+  }
 }

@@ -51,6 +51,11 @@ class ViewsHandler extends Unclonable
   const SYSTEM_CLASS_NAMESPACE = 'Humm\System\Classes\\';
 
   /**
+   * Define the sites shared classes PHP namespace.
+   */
+  const SITES_SHARED_CLASS_NAMESPACE = 'Humm\Sites\Shared\Classes\\';
+
+  /**
    * Store all availables views directory paths.
    *
    * @var array
@@ -178,6 +183,12 @@ class ViewsHandler extends Unclonable
     $template->viewsImagesUrl = UrlPaths::siteViewsImages();
     $template->viewsStylesUrl = UrlPaths::siteViewsStyles();
     $template->viewsScriptsUrl = UrlPaths::siteViewsScripts();
+
+    $template->sharedViewsUrl = UrlPaths::sitesSharedViews();
+    $template->sharedViewsFilesUrl = UrlPaths::sitesSharedViewsFiles();
+    $template->sharedViewsImagesUrl = UrlPaths::sitesSharedViewsImages();
+    $template->sharedViewsStylesUrl = UrlPaths::sitesSharedViewsStyles();
+    $template->sharedViewsScriptsUrl = UrlPaths::sitesSharedViewsScripts();
   }
 
   /**
@@ -205,6 +216,8 @@ class ViewsHandler extends Unclonable
   {
     $template->addViewsDirPaths(array(
       // Order matter here
+      DirPaths::sitesSharedViews(),
+      DirPaths::sitesSharedViewsHelpers(),
       DirPaths::siteViews(),
       DirPaths::siteViewsHelpers(),
       DirPaths::systemViews(),
@@ -272,8 +285,12 @@ class ViewsHandler extends Unclonable
     $siteViewClass = UserSites::viewClassName($viewName);
     $systemViewClass = self::SYSTEM_CLASS_NAMESPACE.
                         $viewName.self::VIEW_CLASS_SUFFIX;
+    $sitesSharedViewClass = self::SITES_SHARED_CLASS_NAMESPACE.
+                        $viewName.self::VIEW_CLASS_SUFFIX;
 
-    if (self::isValidViewClass($siteViewClass)) {
+    if (self::isValidViewClass($sitesSharedViewClass)) {
+      $result = new $sitesSharedViewClass($template);
+    } else if (self::isValidViewClass($siteViewClass)) {
       $result = new $siteViewClass($template);
     } else if (self::isValidViewClass($systemViewClass)) {
       $result = new $systemViewClass($template);
@@ -363,16 +380,20 @@ class ViewsHandler extends Unclonable
   }
 
   /**
-   * Retrieve the directory paths in which views resides.
+   * Retrieve the directory paths in which views can resides.
    *
    * @static
-   * @return array Directory paths for main views.
+   * @return array Directory paths for all possible main views.
    */
   private static function getMainViewsDirs()
   {
     if (self::$viewsDirs == null) {
-      // Order matter here: site views are first
+      // Order matter here:
+      // 1º Shared sites
+      // 2º Site specific
+      // 3º System specific
       self::$viewsDirs = \array_unique(\array_merge(
+        self::getDirectoryViews(DirPaths::sitesSharedViews()),
         self::getDirectoryViews(DirPaths::siteViews()),
         self::getDirectoryViews(DirPaths::systemViews())
       ));

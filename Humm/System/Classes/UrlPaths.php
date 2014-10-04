@@ -288,4 +288,114 @@ class UrlPaths extends Unclonable
   {
     return self::path(UserSites::viewsScriptsUrlPath());
   }
+
+  /**
+   * Retrieve the URL for the sites shared directory.
+   *
+   * @return string URL for the sites shared directory.
+   */
+  public static function sitesShared()
+  {
+    return self::path(DirNames::HUMM.StrUtils::URL_SEPARATOR.
+            DirNames::SITES.StrUtils::URL_SEPARATOR.DirNames::SHARED.
+             StrUtils::URL_SEPARATOR);
+  }
+
+  /**
+   * Retrieve the URL for the sites shared locale directory.
+   *
+   * @return string URL for the sites shared locale directory.
+   */
+  public static function sitesSharedLocale()
+  {
+    return self::sitesShared().
+            DirNames::LOCALE.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the sites shared classes directory.
+   *
+   * @return string URL for the sites shared classes directory.
+   */
+  public static function sitesSharedClasses()
+  {
+    return self::sitesShared().
+            DirNames::CLASSES.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the sites shared procedural directory.
+   *
+   * @return string URL for the sites shared procedural directory.
+   */
+  public static function sitesSharedProcedural()
+  {
+    return self::sitesShared().
+            DirNames::PROCEDURAL.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the sites shared views directory.
+   *
+   * @return string URL for the sites shared views directory.
+   */
+  public static function sitesSharedViews()
+  {
+    return self::sitesShared().DirNames::VIEWS.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the sites shared views files directory.
+   *
+   * @return string URL for the sites shared views files directory.
+   */
+  public static function sitesSharedViewsFiles()
+  {
+    return self::sitesSharedViews().
+            DirNames::FILES.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the sites shared views helpers directory.
+   *
+   * @return string URL for the sites shared views helpers directory.
+   */
+  public static function sitesSharedViewsHelpers()
+  {
+    return self::sitesSharedViews().
+            DirNames::HELPERS.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the sites shared views images directory.
+   *
+   * @return string URL for the sites shared views images directory.
+   */
+  public static function sitesSharedViewsImages()
+  {
+    return self::sitesSharedViews().
+            DirNames::IMAGES.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the sites shared views styles directory.
+   *
+   * @return string URL for the sites shared views styles directory.
+   */
+  public static function sitesSharedViewsStyles()
+  {
+    return self::sitesSharedViews().
+            DirNames::STYLES.StrUtils::URL_SEPARATOR;
+  }
+
+  /**
+   * Retrieve the URL for the sites shared views scripts directory.
+   *
+   * @return string URL for the sites shared views scripts directory.
+   */
+  public static function sitesSharedViewsScripts()
+  {
+    return self::sitesSharedViews().
+            DirNames::SCRIPTS.StrUtils::URL_SEPARATOR;
+  }
 }

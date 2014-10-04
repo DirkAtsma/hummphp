@@ -359,8 +359,7 @@ class ViewsHandler extends Unclonable
   private static function isMainView($viewName)
   {
     // By convention views files must be capitalized.
-    $viewName = \ucfirst($viewName);
-    return in_array($viewName, self::getMainViewsDirs());
+    return in_array(\ucfirst($viewName), self::getMainViewsDirs());
   }
 
   /**

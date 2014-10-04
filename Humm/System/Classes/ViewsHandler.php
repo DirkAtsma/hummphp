@@ -96,7 +96,7 @@ class ViewsHandler extends Unclonable
     $template = new HtmlTemplate();
     self::setViewTemplatePaths($template);
     self::setDefaultTemplateVars($template);
-    self::setupOptionalSharedView($template);
+    self::setOptionalSiteSharedView($template);
     $viewName = self::getRequestedView($template);
     self::setTemplateViewVars($template, $viewName);
     self::filterTemplate($template);
@@ -290,12 +290,12 @@ class ViewsHandler extends Unclonable
    * @static
    * @param HtmlTemplate $template Reference to an HTML template object.
    */
-  private static function setupOptionalSharedView(HtmlTemplate $template)
+  private static function setOptionalSiteSharedView(HtmlTemplate $template)
   {
-    $sharedViewClass = UserSites::sharedViewClassName();
-    if (self::isValidViewClass($sharedViewClass)) {
-      $sharedView = new $sharedViewClass($template);
-      unset($sharedView);
+    $class = UserSites::sharedViewClassName();
+    if (self::isValidViewClass($class)) {
+      $view = new $class($template);
+      unset($view);
     }
   }
 

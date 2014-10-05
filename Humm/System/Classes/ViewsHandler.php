@@ -85,7 +85,7 @@ class ViewsHandler extends Unclonable
    */
   private static function startBuffer()
   {
-    \ob_start(function($buffer){
+    \ob_start(function($buffer) {
       return HummPlugins::applySimpleFilter(
         PluginFilters::BUFFER_OUTPUT, $buffer);
     });
@@ -281,21 +281,24 @@ class ViewsHandler extends Unclonable
   private static function getViewClassInstance(
    $viewName, HtmlTemplate $template)
   {
-    $result = null;
-    $siteViewClass = UserSites::viewClassName($viewName);
-    $systemViewClass = self::SYSTEM_CLASS_NAMESPACE.
-                        $viewName.self::VIEW_CLASS_SUFFIX;
-    $sitesSharedViewClass = self::SITES_SHARED_CLASS_NAMESPACE.
-                        $viewName.self::VIEW_CLASS_SUFFIX;
+    $sharedClass = self::SITES_SHARED_CLASS_NAMESPACE.
+                    $viewName.self::VIEW_CLASS_SUFFIX;
 
-    if (self::isValidViewClass($sitesSharedViewClass)) {
-      $result = new $sitesSharedViewClass($template);
-    } else if (self::isValidViewClass($siteViewClass)) {
-      $result = new $siteViewClass($template);
-    } else if (self::isValidViewClass($systemViewClass)) {
-      $result = new $systemViewClass($template);
+    $systemClass = self::SYSTEM_CLASS_NAMESPACE.
+                    $viewName.self::VIEW_CLASS_SUFFIX;
+
+    $siteClass = UserSites::viewClassName($viewName);
+
+    // Order matter here
+    if (self::isValidViewClass($sharedClass)) {
+      $result = new $sharedClass($template);
+    } else if (self::isValidViewClass($siteClass)) {
+      $result = new $siteClass($template);
+    } else if (self::isValidViewClass($systemClass)) {
+      $result = new $systemClass($template);
+    } else {
+      return null;
     }
-    return $result;
   }
 
   /**
@@ -330,6 +333,25 @@ class ViewsHandler extends Unclonable
   }
 
   /**
+   * Find if the specified view class exists.
+   *
+   * @static
+   * @param string $viewClass Class name to be checked.
+   * @return boolean True if the class exists, False if not.
+   */
+  private static function viewClassExists($viewClass)
+  {
+    $expectedPath = \str_replace(
+      StrUtils::PHP_NS_SEPARATOR,
+      \DIRECTORY_SEPARATOR,
+      $viewClass
+    ).FileExts::DOT_PHP;
+
+    return \file_exists($expectedPath) &&
+            \class_exists($viewClass);
+  }
+
+  /**
    * Find if a class is derived from the views base class.
    *
    * @static
@@ -343,26 +365,7 @@ class ViewsHandler extends Unclonable
   }
 
   /**
-   * Find if the specified view class exists.
-   *
-   * @static
-   * @param string $viewClass Class name to be checked.
-   * @return boolean True if the class exists, False if not.
-   */
-  private static function viewClassExists($viewClass)
-  {
-    $viewClassPath = \str_replace(
-      StrUtils::PHP_NS_SEPARATOR,
-      \DIRECTORY_SEPARATOR,
-      $viewClass
-    ).FileExts::DOT_PHP;
-
-    return \file_exists($viewClassPath) &&
-            \class_exists($viewClass);
-  }
-
-  /**
-   * Find if a view is a main or view or not.
+   * Find if a view is a main view or not.
    *
    * Main views corresponded with URL arguments. On the
    * contrary we count also with views helpers, which are
@@ -375,7 +378,7 @@ class ViewsHandler extends Unclonable
    */
   private static function isMainView($viewName)
   {
-    // By convention views files must be capitalized.
+    // By convention views files must be first capitalized.
     return in_array(\ucfirst($viewName), self::getMainViewsDirs());
   }
 

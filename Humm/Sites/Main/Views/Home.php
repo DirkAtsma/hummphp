@@ -24,18 +24,18 @@
   <?php e('To get more information, obtain help and download the last Humm PHP release visit their website at:') ?>
  </p>
  <p>
-  <a href="<?= $hummPhpSiteUrl ?>" target="_blank"
+  <a href="<?= $hummPhpSiteUrl ?>"
    title="<?php e('Visit the Humm PHP website') ?>">http://www.hummphp.com</a>
  </p>
 
  <footer id="pageFooter">
   <div id="poweredNote">
-   <a href="<?= $hummPhpSiteUrl ?>" target="_blank"
+   <a href="<?= $hummPhpSiteUrl ?>"
     title="<?php e('Visit the Humm PHP website') ?>"><?php e('Powered by Humm PHP') ?>
      <span class="hummVersion"><?= $hummVersion ?></span></a>
   </div>
   <div id="copyrightNote">
-   ©2014 Humm PHP - <a href="<?= $hummPhpSiteUrl ?>" target="_blank"
+   ©2014 Humm PHP - <a href="<?= $hummPhpSiteUrl ?>"
     title="<?php e('Visit the Humm PHP website') ?>">www.hummphp.com</a>
   </div>
  </footer>

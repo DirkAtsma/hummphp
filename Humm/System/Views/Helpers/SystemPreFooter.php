@@ -3,7 +3,7 @@
 
    <footer id="pageFooter">
     <div id="poweredNote">
-     <a href="<?= $hummPhpSiteUrl ?>" target="_blank"
+     <a href="<?= $hummPhpSiteUrl ?>"
       title="<?php e('Visit the Humm PHP website') ?>"><?php e('Powered by Humm PHP') ?>
        <span class="hummVersion"><?= $hummVersion ?></span></a>
     </div>

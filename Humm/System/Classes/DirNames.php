@@ -37,7 +37,6 @@ class DirNames extends Unclonable
    */
   const SHARED = 'Shared';
 
-
   /**
    * Define the Humm PHP main site directory name.
    */

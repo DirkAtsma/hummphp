@@ -37,7 +37,7 @@ class Configuration extends Unclonable
       if (\file_exists($siteConfig)) {
         require $siteConfig;
       }
-      // Always after user config
+      // Always after site config
       require FilePaths::systemConfig();
     }
   }

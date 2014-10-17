@@ -124,6 +124,7 @@ class FilePaths extends Unclonable
    * Retrieve a plugin text domain or MO file path.
    *
    * @static
+   * @param String $pluginDir Absolute plugin directory path.
    * @return string Plugin text domain or MO file path.
    */
   public static function pluginTextDomain($pluginDir)

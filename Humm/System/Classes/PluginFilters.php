@@ -72,5 +72,5 @@ class PluginFilters extends Unclonable
    * theh filter arguments content, filtered or not, in
    * order to maintain the chain.
    */
-  const DATABASE_SQL = 10003;
+  const DATABASE_SQL = 1003;
 }

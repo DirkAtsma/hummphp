@@ -314,8 +314,7 @@ class ViewsHandler extends Unclonable
   {
     $class = UserSites::sharedViewClassName();
     if (self::isValidViewClass($class)) {
-      $view = new $class($template);
-      unset($view);
+      $template->sharedView = new $class($template);
     }
   }
 

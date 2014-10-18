@@ -281,13 +281,15 @@ class ViewsHandler extends Unclonable
   private static function getViewClassInstance(
    $viewName, HtmlTemplate $template)
   {
+    $result = null;
+
     $sharedClass = self::SITES_SHARED_CLASS_NAMESPACE.
                     $viewName.self::VIEW_CLASS_SUFFIX;
 
+    $siteClass = UserSites::viewClassName($viewName);
+
     $systemClass = self::SYSTEM_CLASS_NAMESPACE.
                     $viewName.self::VIEW_CLASS_SUFFIX;
-
-    $siteClass = UserSites::viewClassName($viewName);
 
     // Order matter here
     if (self::isValidViewClass($sharedClass)) {
@@ -296,9 +298,9 @@ class ViewsHandler extends Unclonable
       $result = new $siteClass($template);
     } else if (self::isValidViewClass($systemClass)) {
       $result = new $systemClass($template);
-    } else {
-      return null;
     }
+
+    return $result;
   }
 
   /**

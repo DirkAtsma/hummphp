@@ -142,7 +142,7 @@ class ViewsHandler extends Unclonable
    HtmlTemplate $template, $viewName)
   {
     $template->viewName = $viewName;
-    $template->viewClass = self::getViewClassInstance($viewName, $template);
+    $template->siteView = self::getViewClassInstance($viewName, $template);
   }
 
   /**

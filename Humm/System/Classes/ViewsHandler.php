@@ -118,8 +118,9 @@ class ViewsHandler extends Unclonable
    */
   private static function getRequestedView(HtmlTemplate $template)
   {
-    // Fallback for non home site views
+    // Fallback for missing site home view
     $view = self::SYSTEM_HOME_VIEW;
+
     if (self::isMainView(UrlArguments::get(0)) &&
      $template->viewFileExists(UrlArguments::get(0))) {
        $view = UrlArguments::get(0);

@@ -100,7 +100,8 @@ class ViewsHandler extends Unclonable
   {
     $template = new HtmlTemplate();
     self::setViewTemplatePaths($template);
-    self::setDefaultTemplateVars($template);
+    TemplateVars::setDefaultSiteVars($template);
+    TemplateVars::setDefaultSystemVars($template);
     self::setOptionalSiteSharedView($template);
     $viewName = self::getRequestedView($template);
     self::setTemplateViewVars($template, $viewName);
@@ -144,67 +145,6 @@ class ViewsHandler extends Unclonable
   {
     $template->viewName = $viewName;
     $template->siteView = self::getViewClassInstance($viewName, $template);
-  }
-
-  /**
-   * Set the default view variables.
-   *
-   * The default variables offers easy access for useful stuff
-   * like site URLs, URL arguments, current language, etc.
-   *
-   * @static
-   * @param HtmlTemplate $template Reference to an HTML template object.
-   */
-  private static function setDefaultTemplateVars(HtmlTemplate $template)
-  {
-    self::setDefaultSiteTemplateVars($template);
-    self::setDefaultSystemTemplateVars($template);
-  }
-
-  /**
-   * Set the default site view variables.
-   *
-   * @static
-   * @param HtmlTemplate $template Reference to an HTML template object.
-   */
-  private static function setDefaultSiteTemplateVars(HtmlTemplate $template)
-  {
-    // Previous views code will fail if this variables are renamed
-    $template->hummVersion = \HUMM_VERSION_STRING;
-    $template->hummRelease = \HUMM_VERSION_RELEASE;
-
-    $template->requestUri = UrlPaths::current();
-    $template->siteLanguage = Languages::getCurrentLanguage();
-    $template->siteLanguages = Languages::getLanguages();
-    $template->siteLanguageDir = Languages::getLanguageDirection();
-
-    $template->siteUrl = UrlPaths::root();
-    $template->viewsUrl = UrlPaths::siteViews();
-    $template->viewsFilesUrl = UrlPaths::siteViewsFiles();
-    $template->viewsImagesUrl = UrlPaths::siteViewsImages();
-    $template->viewsStylesUrl = UrlPaths::siteViewsStyles();
-    $template->viewsScriptsUrl = UrlPaths::siteViewsScripts();
-
-    $template->sharedViewsUrl = UrlPaths::sitesSharedViews();
-    $template->sharedViewsFilesUrl = UrlPaths::sitesSharedViewsFiles();
-    $template->sharedViewsImagesUrl = UrlPaths::sitesSharedViewsImages();
-    $template->sharedViewsStylesUrl = UrlPaths::sitesSharedViewsStyles();
-    $template->sharedViewsScriptsUrl = UrlPaths::sitesSharedViewsScripts();
-  }
-
-  /**
-   * Set the default system view variables.
-   *
-   * @static
-   * @param HtmlTemplate $template Reference to an HTML template object.
-   */
-  private static function setDefaultSystemTemplateVars(HtmlTemplate $template)
-  {
-    // Used by the system Home view
-    $template->systemViewsUrl = UrlPaths::systemViews();
-    $template->systemViewsImagesUrl = UrlPaths::systemViewsImages();
-    $template->systemViewsStylesUrl = UrlPaths::systemViewsStyles();
-    $template->systemViewsScriptsUrl = UrlPaths::systemViewsScripts();
   }
 
   /**

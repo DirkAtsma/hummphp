@@ -1,12 +1,4 @@
 
-@viewport
-{
-  zoom: 1.0;
-  user-zoom: zoom;
-  orientation: auto;
-  width: extend-to-zoom;
-}
-
 @media all
 {
   body

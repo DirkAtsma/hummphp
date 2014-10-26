@@ -92,9 +92,9 @@ class ViewsHandler extends Unclonable
     TemplateVars::setDefaultSystemVars($template);
 
     // An optional shared view class can be used if available.
-    $class = UserSites::sharedViewClassName();
-    if (self::isValidViewClass($class)) {
-      $template->sharedView = new $class($template);
+    $sharedView = UserSites::sharedViewClassName();
+    if (self::isValidViewClass($sharedView)) {
+      $template->sharedView = new $sharedView($template);
     }
 
     // Setup into the HTML template the variables which contains

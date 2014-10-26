@@ -99,14 +99,13 @@ class ViewsHandler extends Unclonable
   private static function displayView()
   {
     $template = new HtmlTemplate();
-    self::setViewTemplatePaths($template);
+    TemplatePaths::setTemplatePaths($template);
     TemplateVars::setDefaultSiteVars($template);
     TemplateVars::setDefaultSystemVars($template);
     self::setOptionalSiteSharedView($template);
     $viewName = self::getRequestedView($template);
     self::setTemplateViewVars($template, $viewName);
     self::filterTemplate($template);
-    self::addPluginsViews($template);
     $template->displayView($viewName);
   }
 
@@ -148,25 +147,6 @@ class ViewsHandler extends Unclonable
   }
 
   /**
-   * Set the directory paths in which views resides.
-   *
-   * @static
-   * @param HtmlTemplate $template Reference to an HTML template object.
-   */
-  private static function setViewTemplatePaths(HtmlTemplate $template)
-  {
-    $template->addViewsDirPaths(array(
-      // Order matter here
-      DirPaths::sitesSharedViews(),
-      DirPaths::sitesSharedViewsHelpers(),
-      DirPaths::siteViews(),
-      DirPaths::siteViewsHelpers(),
-      DirPaths::systemViews(),
-      DirPaths::systemViewsHelpers()
-    ));
-  }
-
-  /**
    * Let the plugins to filter the view HTML template.
    *
    * @static
@@ -176,24 +156,6 @@ class ViewsHandler extends Unclonable
   {
     HummPlugins::applySimpleFilter(
      PluginFilters::VIEW_TEMPLATE, $template);
-  }
-
-  /**
-   * Add plugins directories to the template paths.
-   *
-   * In fac we add the plugins views and helpers directories to the
-   * template pahts, so the views and helpers stored in these directories
-   * are automatically available to use in the site template.
-   *
-   * @static
-   * @param HtmlTemplate $template Reference to an HTML template object.
-   */
-  private static function addPluginsViews(HtmlTemplate $template)
-  {
-    foreach (HummPlugins::getPlugins() as $plugin) {
-      $template->addViewsDirPath($plugin->viewsDir());
-      $template->addViewsDirPath($plugin->viewsHelpersDir());
-    }
   }
 
   /**

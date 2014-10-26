@@ -99,13 +99,30 @@ class ViewsHandler extends Unclonable
   private static function displayView()
   {
     $template = new HtmlTemplate();
+
+    // Set the shared sites, sites and system directories
+    // in which the HTML template can found views and helpers.
     TemplatePaths::setTemplatePaths($template);
+
+    // Set the default view variables, available everyehere.
     TemplateVars::setDefaultSiteVars($template);
     TemplateVars::setDefaultSystemVars($template);
+
+    // An optional shared view class can be used if available.
     self::setOptionalSiteSharedView($template);
+
+    // Setup into the HTML template the variables which contains
+    // the current (requested) view name and the appropiate site
+    // class object instance.
     $viewName = self::getRequestedView($template);
-    self::setTemplateViewVars($template, $viewName);
-    self::filterTemplate($template);
+    $template->viewName = $viewName;
+    $template->siteView = self::getViewClassInstance($viewName, $template);
+
+    // Allow plugins to add stuff into the HTML template.
+    HummPlugins::applySimpleFilter(
+     PluginFilters::VIEW_TEMPLATE, $template);
+
+    // Finally display the requested site view.
     $template->displayView($viewName);
   }
 
@@ -130,32 +147,6 @@ class ViewsHandler extends Unclonable
     }
     // Views file names must be capitalized by convention
     return \ucfirst($view);
-  }
-
-  /**
-   * Put the current view and view class into the template.
-   *
-   * @static
-   * @param HtmlTemplate $template Reference to an HTML template object.
-   * @param string $viewName Current view name.
-   */
-  private static function setTemplateViewVars(
-   HtmlTemplate $template, $viewName)
-  {
-    $template->viewName = $viewName;
-    $template->siteView = self::getViewClassInstance($viewName, $template);
-  }
-
-  /**
-   * Let the plugins to filter the view HTML template.
-   *
-   * @static
-   * @param HtmlTemplate $template Reference to an HTML template object.
-   */
-  private static function filterTemplate(HtmlTemplate $template)
-  {
-    HummPlugins::applySimpleFilter(
-     PluginFilters::VIEW_TEMPLATE, $template);
   }
 
   /**

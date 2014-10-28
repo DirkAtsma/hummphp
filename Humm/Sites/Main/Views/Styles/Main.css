@@ -34,7 +34,7 @@
     font-weight: bold;
   }
 
-  #contentsWrapper
+  #pageWrapper
   {
     width: 45%;
     color: #000;
@@ -44,7 +44,7 @@
     background-color: #fff;
   }
 
-  #pageHeader
+  #pageWrapper header
   {
     color: #fff;
     padding: 2em 0;
@@ -55,48 +55,48 @@
     background-color: #111;
   }
 
-  #pageHeader a
+  #pageWrapper header a
   {
     color: #fff;
     text-decoration: none;
     background-color: transparent;
   }
 
-  #pageHeader h1
+  #pageWrapper header h1
   {
     font-size: 2.8em;
     font-weight: bold;
   }
 
-  #pageHeader h2
+  #pageWrapper header h2
   {
     font-size: 1.5em;
   }
 
-  #contentsWrapper h3
+  #pageWrapper section h1
   {
     font-size: 1.3em;
     margin: 1em 25% 0 0;
   }
 
-  #contentsWrapper p
+  #pageWrapper p
   {
     line-height: 1.5em;
     margin: 1em 25% 0 0;
   }
 
-  #languageForm
+  #pageWrapper #languageForm
   {
     text-align: right;
     margin: -1.2em 0.1em 0 0;
   }
 
-  #languageForm select
+  #pageWrapper #languageForm select
   {
     border: 1px solid #999;
   }
 
-  #pageFooter
+  #pageWrapper footer
   {
     color: #fff;
     margin: 2em 0 0 0;
@@ -107,24 +107,24 @@
     background-color: #111;
   }
 
-  #pageFooter a
+  #pageWrapper footer a
   {
     color: #fff;
     background-color: transparent;
   }
 
-  #poweredNote
+  #pageWrapper footer #poweredNote
   {
 
   }
 
-  .hummVersion
+  #pageWrapper footer .hummVersion
   {
     font-size: 0.9em;
     font-style: italic;
   }
 
-  #copyrightNote
+  #pageWrapper footer #copyrightNote
   {
     font-size: 0.7em;
   }
@@ -132,7 +132,7 @@
 
 @media all and (max-width:1000px)
 {
-  #contentsWrapper
+  #pageWrapper
   {
     width: 60%;
   }
@@ -140,7 +140,7 @@
 
 @media all and (max-width:700px)
 {
-  #contentsWrapper
+  #pageWrapper
   {
     width: 70%;
   }
@@ -148,13 +148,13 @@
 
 @media all and (max-width:600px)
 {
-  #contentsWrapper
+  #pageWrapper
   {
     width: 85%;
     padding: 0.5em;
   }
 
-  #contentsWrapper p
+  #pageWrapper p
   {
     margin: 1em 5% 0 0;
   }
@@ -168,18 +168,18 @@
     text-align: center;
   }
 
-  #pageHeader
+  #pageWrapper header
   {
     font-size: 0.7em;
     padding: 2em 2em 3em 2em;
   }
 
-  #pageHeader h2
+  #pageWrapper header h2
   {
     display: none;
   }
 
-  #contentsWrapper h3
+  #pageWrapper section h1
   {
     color: #fff;
     padding: 0.5em;
@@ -188,18 +188,18 @@
     border-radius: 0 0 0.3em 0.3em;
   }
 
-  #contentsWrapper p
+  #pageWrapper p
   {
     margin: 1em 5% 0 0;
   }
 
-  #languageForm
+  #pageWrapper #languageForm
   {
     margin: 1em 0 0 0;
     text-align: center;
   }
 
-  #poweredNote
+  #pageWrapper footer #poweredNote
   {
     display: none;
   }

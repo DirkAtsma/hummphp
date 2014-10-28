@@ -1,7 +1,7 @@
 
 <?php if (!$this) { exit; } ?>
 
-   <footer id="pageFooter">
+   <footer>
     <div id="poweredNote">
      <a href="<?= $hummPhpSiteUrl ?>"
       title="<?php e('Visit the Humm PHP website') ?>"><?php e('Powered by Humm PHP') ?>
@@ -12,5 +12,6 @@
       title="<?php e('Visit the Humm PHP website') ?>">www.hummphp.com</a>
     </div>
    </footer>
+
   </div>
-  <!-- /contentsWrapper -->
+  <!-- /pageWrapper -->

@@ -34,7 +34,7 @@ class SystemHomeView extends SystemSharedView
     parent::__construct($template);
     // Disallow direct user requests to this view URL
     if (\strtolower(UrlArguments::get(0)) ==
-     \strtolower(ViewsHandler::SYSTEM_HOME_VIEW)) {
+     \strtolower(RequestedView::SYSTEM_HOME_VIEW)) {
        UserClient::redirectToHome();
     }
   }

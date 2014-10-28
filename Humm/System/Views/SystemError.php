@@ -6,11 +6,12 @@
  <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>Errors.css" media="all" />
 <?php $this->displayView('SystemPosHeader') ?>
 
-<h3>
- <?php e('Humm PHP error') ?>
-</h3>
+<section>
+ <h1>
+  <?php e('Humm PHP error') ?>
+ </h1>
 
-<?php if(isset($errors) && is_array($errors)) : ?>
+ <?php if(isset($errors) && is_array($errors)) : ?>
 
   <?php foreach($errors as $errorInfo) : ?>
 
@@ -36,13 +37,15 @@
 
    <?php endforeach; ?>
 
-<?php else : ?>
+ <?php else : ?>
 
- <p>
-  <?php e('Sorry, an error occur, but Humm PHP is configured to hide more information.') ?>
- </p>
+  <p>
+   <?php e('Sorry, an error occur, but Humm PHP is configured to hide more information.') ?>
+  </p>
 
-<?php endif; ?>
+ <?php endif; ?>
+  
+</section>
 
 <?php $this->displayView('SystemPreFooter') ?>
 <?php $this->displayView('SystemPosFooter') ?>

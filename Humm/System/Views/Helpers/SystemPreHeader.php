@@ -6,5 +6,4 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Humm PHP: http://www.hummphp.com/" />
-  <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>Foundation.css" media="all" />
   <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>Main.css" media="all" />

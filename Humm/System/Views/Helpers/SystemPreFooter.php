@@ -8,7 +8,7 @@
        <span class="hummVersion"><?= $hummVersion ?></span></a>
     </div>
     <div id="copyrightNote">
-     ©2014 Humm PHP - <a href="<?= $hummPhpSiteUrl ?>"
+     ©2015 Humm PHP - <a href="<?= $hummPhpSiteUrl ?>"
       title="<?php e('Visit the Humm PHP website') ?>">www.hummphp.com</a>
     </div>
    </footer>

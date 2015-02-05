@@ -100,7 +100,7 @@ class LanguagesMap extends Unclonable
         'dz' => 'Bhutani',
         'el' => 'Greek',
         'eo' => 'Esperanto',
-        'es' => 'Spanish',
+        'es' => 'Español',
         'et' => 'Estonian',
         'eu' => 'Basque',
         'fa' => 'Persian',

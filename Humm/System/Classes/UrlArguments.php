@@ -49,6 +49,25 @@ namespace Humm\System\Classes;
  * more propertly in the associated view class in order to
  * provide the right response to that URL request.
  *
+ * Optionally, you can use a "rewrite module", for example,
+ * the Apache rewrite module, adding an ".htaccess" file
+ * with a content like this:
+ *
+ * RewriteCond %{REQUEST_FILENAME} !-f
+ * RewriteCond %{REQUEST_FILENAME} !-d
+ * RewriteRule ^.*$ index.php
+ *
+ * Put the file in your Humm root installation directory,
+ * and then, Humm PHP automatically recognize and deal
+ * with URL like these:
+ *
+ * http://www.yoursite.com/contact
+ *
+ * http://www.yoursite.com/search/page/10
+ *
+ * Everything works like expected in this case: the same
+ * URL arguments, arguments count, etc.
+ *
  */
 class UrlArguments extends Unclonable
 {

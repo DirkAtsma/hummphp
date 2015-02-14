@@ -33,7 +33,7 @@ class UserSites extends Unclonable
    * Define the optional site shared view class.
    */
   const SHARED_VIEW_CLASS = 'Humm\Sites\%s\Classes\SharedView';
-  
+
   /**
    * Store the current site directory name.
    *
@@ -221,7 +221,7 @@ class UserSites extends Unclonable
     $serverUrl = self::sanitizedServerUrl();
     \preg_match_all('#(.+)\.(.+)#', $serverUrl, $matches);
     if (isset($matches[1]) && isset($matches[1][0])) {
-      foreach( \explode(StrUtils::DOT, $matches[1][0]) as $domainPart ) {
+      foreach(\explode(StrUtils::DOT, $matches[1][0]) as $domainPart) {
         $siteDir .= \ucfirst($domainPart);
       }
     }

@@ -197,19 +197,38 @@ class UserSites extends Unclonable
    * Retrieve the expected user site from the server URL.
    *
    * Note this function can determine the right site directory
-   * from the server URL including possible subdomains.
+   * from the server URL including possible subdomains and also
+   * complete numeric domains or domain which start by a number.
    *
-   * For example, from an URL like this:
+   * From an URL like this:
    *
    * http://www.mysite.com/
    *
-   * The site directory are Mysite (note the capitalization convention).
+   * The site directory are "Mysite".
    *
-   * Another URL like this this:
+   * From an URL like this:
    *
    * http://www.subdomain.mysite.com/
    *
-   * The site directory are SubdomainMysite.
+   * The site directory are "SubdomainMysite".
+   *
+   * For an URL like this:
+   *
+   * http://www.1001.com/
+   *
+   * The site directory are "Onzezeon".
+   *
+   * For an URL like this:
+   *
+   * http://www.10abc.com/
+   *
+   * The site directory are "Onzeabc".
+   *
+   * For an URL like this:
+   *
+   * http://www.abc10.com/
+   *
+   * The site directory are "Abc10".
    *
    * @static
    * @return string The found site directory name.
@@ -221,8 +240,27 @@ class UserSites extends Unclonable
     $serverUrl = self::sanitizedServerUrl();
     \preg_match_all('#(.+)\.(.+)#', $serverUrl, $matches);
     if (isset($matches[1]) && isset($matches[1][0])) {
-      foreach(\explode(StrUtils::DOT, $matches[1][0]) as $domainPart) {
-        $siteDir .= \ucfirst($domainPart);
+      $siteDir = self::siteDirFromUrlMatches($matches);
+    }
+    return $siteDir;
+  }
+
+  /**
+   * Just a helper function for siteDirFromUrl.
+   *
+   * @static
+   * @see self::siteDirFromUrl()
+   * @param array $matches Domain parts found in the URL.
+   * @return string Site directory name based in the URL.
+   */
+  private static function siteDirFromUrlMatches($matches)
+  {
+    $siteDir = StrUtils::EMPTY_STRING;
+    foreach(\explode(StrUtils::DOT, $matches[1][0]) as $dPart) {
+      if (\is_numeric($dPart[0]) || \is_numeric($dPart)) {
+        $siteDir .= \ucfirst(self::numToChars($dPart));
+      } else {
+        $siteDir .= \ucfirst($dPart);
       }
     }
     return $siteDir;
@@ -256,5 +294,35 @@ class UserSites extends Unclonable
     return !StrUtils::isTrimEmpty($siteDirName) &&
              \is_dir(DirPaths::humm().DirNames::SITES.
               \DIRECTORY_SEPARATOR.$siteDirName);
+  }
+
+  /**
+   * Get an string representation of a number.
+   *
+   * @static
+   * @param int $number The number to be converted
+   * @return string The entered number as chars
+   */
+  private static function numToChars($number)
+  {
+    $result = '';
+    $string = (string)$number;
+    $strLen = \strlen($string);
+    for ($i = 0; $i < $strLen; $i++) {
+      switch ($string[$i]) {
+        case '0': $result .= 'ze'; break;
+        case '1': $result .= 'on'; break;
+        case '2': $result .= 'tw'; break;
+        case '3': $result .= 'th'; break;
+        case '4': $result .= 'fo'; break;
+        case '5': $result .= 'fi'; break;
+        case '6': $result .= 'si'; break;
+        case '7': $result .= 'se'; break;
+        case '8': $result .= 'ei'; break;
+        case '9': $result .= 'ni'; break;
+        default: $result .= $string[$i]; break;
+      }
+    }
+    return $result;
   }
 }

@@ -42,7 +42,7 @@ class PDOExtended extends \PDO
    *
    * @var int
    */
-  protected $fetchMode = \PDO::FETCH_CLASS;
+  protected $fetchMode = parent::FETCH_CLASS;
 
   /**
    * Fetch class currently established.
@@ -62,7 +62,7 @@ class PDOExtended extends \PDO
   public function __construct($dsn, $user = '', $pass = '', $options = null)
   {
     parent::__construct($dsn, $user, $pass, $options);
-    parent::setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+    parent::setAttribute(parent::ATTR_ERRMODE, parent::ERRMODE_EXCEPTION);
   }
 
   /**
@@ -92,7 +92,7 @@ class PDOExtended extends \PDO
   {
     $result = null;
     if ($this->query($sql, $params)) {
-      $fetch = $this->statement->fetch(\PDO::FETCH_NUM);
+      $fetch = $this->statement->fetch(parent::FETCH_NUM);
       if (isset($fetch[0])) {
         $result = $fetch[0];
       }
@@ -125,7 +125,7 @@ class PDOExtended extends \PDO
   {
     $result = array();
     if ($this->query($sql, $params)) {
-      $results = $this->statement->fetchAll(\PDO::FETCH_NUM);
+      $results = $this->statement->fetchAll(parent::FETCH_NUM);
       foreach ($results as $row) {
         $result[$row[0]] = $row[1];
       }
@@ -188,7 +188,7 @@ class PDOExtended extends \PDO
   {
     $result = null;
     if ($this->query($sql, $params)) {
-      $result = $this->statement->fetchAll(\PDO::FETCH_COLUMN);
+      $result = $this->statement->fetchAll(parent::FETCH_COLUMN);
     }
     return $result;
   }
@@ -452,7 +452,7 @@ class PDOExtended extends \PDO
    */
   public function getDriverName()
   {
-    return $this->getAttribute(\PDO::ATTR_DRIVER_NAME);
+    return $this->getAttribute(parent::ATTR_DRIVER_NAME);
   }
 
   /**
@@ -462,7 +462,7 @@ class PDOExtended extends \PDO
    */
   public function getErrorMode()
   {
-    return $this->getAttribute(\PDO::ATTR_ERRMODE);
+    return $this->getAttribute(parent::ATTR_ERRMODE);
   }
 
   /**
@@ -473,7 +473,7 @@ class PDOExtended extends \PDO
    */
   public function setErrorMode($errorMode)
   {
-    return $this->setAttribute(\PDO::ATTR_ERRMODE, $errorMode);
+    return $this->setAttribute(parent::ATTR_ERRMODE, $errorMode);
   }
 
   /**
@@ -524,10 +524,10 @@ class PDOExtended extends \PDO
     if ($this->statement instanceof \PDOStatement) {
       if (!StrUtils::isTrimEmpty($class)) {
         $this->fetchClass = $class;
-        $this->fetchMode = \PDO::FETCH_CLASS;
+        $this->fetchMode = parent::FETCH_CLASS;
       }
-      if ($this->fetchMode == \PDO::FETCH_CLASS) {
-        $this->statement->setFetchMode(\PDO::FETCH_CLASS, $this->fetchClass);
+      if ($this->fetchMode == parent::FETCH_CLASS) {
+        $this->statement->setFetchMode(parent::FETCH_CLASS, $this->fetchClass);
       } else {
         $this->statement->setFetchMode($this->fetchMode);
       }

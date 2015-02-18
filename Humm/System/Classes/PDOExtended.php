@@ -494,7 +494,7 @@ class PDOExtended extends \PDO
    * @link http://www.php.net/manual/en/pdo.prepare.php
    * @param string $sql The SQL statement to prepare.
    * @param array $options Driver specific options.
-   * @return PDOStatement object instance.
+   * @return \PDOStatement object instance.
    */
   public function prepare($sql, $options = array())
   {
@@ -508,7 +508,7 @@ class PDOExtended extends \PDO
    * @param string $sql The SQL statement to prepare and execute.
    * @param array $params The SQL statement arguments.
    * @param string $class Class name to fetch the results.
-   * @return PDOStatement|boolean object instance or False on failure.
+   * @return \PDOStatement|boolean object instance or False on failure.
    */
   public function query($sql, $params = array(), $class = '')
   {

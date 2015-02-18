@@ -60,8 +60,8 @@ class PluginFilters extends Unclonable
    * Define the database SQL plugin filter ID.
    *
    * Executed from PDOExtended::translateSQL() this filter
-   * provide as the filter content with an SQL statement just
-   * before are executed agains the database.
+   * is provided to translate executed SQL statements just
+   * before are executed against the database.
    *
    * This means that the plugin can filter the SQL statement
    * in some way, although this filter is mainly intended to
@@ -69,7 +69,7 @@ class PluginFilters extends Unclonable
    * database drivers statements.
    *
    * Like in any other filter, the plugin must return
-   * theh filter arguments content, filtered or not, in
+   * the filter arguments content, filtered or not, in
    * order to maintain the chain.
    */
   const DATABASE_SQL = 1003;

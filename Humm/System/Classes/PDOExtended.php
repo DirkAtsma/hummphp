@@ -70,14 +70,14 @@ class PDOExtended extends \PDO
    *
    * <code>
    *   // Get the text of a note with id = 1 (using value)
-   *   Database::val
+   *   Database::getValue
    *   (
    *     'SELECT text FROM notes WHERE id = ?',
    *     array(1)
    *   );
    *
    *   // Get the text of a note with id = 1 (using binded param)
-   *   Database::val
+   *   Database::getValue
    *   (
    *     'SELECT text FROM notes WHERE id = :id',
    *     array('id' => 1)
@@ -105,13 +105,13 @@ class PDOExtended extends \PDO
    *
    * <code>
    *   // Get date (as key) and text (as value) note with id = 1
-   *   Database::keyVal
+   *   Database::getPair
    *   (
    *     'SELECT date, text FROM notes WHERE id = ?', array(1)
    *   );
    *
    *   // Get date (as key) and text (as value) note with id = 1
-   *   Database::keyVal
+   *   Database::getPair
    *   (
    *     'SELECT date, text FROM notes WHERE id = :id', array('id' => 1)
    *   );
@@ -138,10 +138,10 @@ class PDOExtended extends \PDO
    *
    * <code>
    *   // Get all fields of the note with id = 1 (using value)
-   *   Database::row('SELECT * FROM notes WHERE id = ?', array(1));
+   *   Database::getRow('SELECT * FROM notes WHERE id = ?', array(1));
    *
    *   // Get all fields of the note with id = 1 (using binded param)
-   *   Database::row('SELECT * FROM notes WHERE id = :id', array('id' => 1));
+   *   Database::getRow('SELECT * FROM notes WHERE id = :id', array('id' => 1));
    * </code>
    *
    * @param string $sql SQL statement to be prepared an executed.
@@ -166,14 +166,14 @@ class PDOExtended extends \PDO
    *   Database::column('SELECT text FROM notes');
    *
    *   // Get all notes text with priority = 1 (using value)
-   *   Database::column
+   *   Database::getColumn
    *   (
    *     'SELECT text FROM notes WHERE priority = ?',
    *     array(1)
    *   );
    *
    *   // Get all notes with priority = 1 (using binded param)
-   *   Database::column
+   *   Database::getColumn
    *   (
    *     'SELECT text FROM notes WHERE priority = :priority',
    *     array('priority' => 1)
@@ -198,17 +198,17 @@ class PDOExtended extends \PDO
    *
    * <code>
    *   // Get all notes from database
-   *   Database::results('SELECT * FROM notes');
+   *   Database::getResults('SELECT * FROM notes');
    *
    *   // Get all notes with priority = 1 (using value)
-   *   Database::results
+   *   Database::getResults
    *   (
    *     'SELECT * FROM notes WHERE priority = ?',
    *     array(1)
    *   );
    *
    *   // Get all notes with priority = 1 (using binded param)
-   *   Database::results
+   *   Database::getResults
    *   (
    *     'SELECT * FROM notes WHERE priority = :priority',
    *     array('priority' => 1)

@@ -15,7 +15,7 @@
 namespace Humm\System\Classes;
 
 /**
- * System OutputBuffer class implementation.
+ * System StrUtils class implementation.
  *
  * This system class can be used both in system and
  * user sites for string manipulation.

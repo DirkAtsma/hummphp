@@ -8,7 +8,7 @@
  * template variables and so on.
  *
  * @author D. Esperalta <info@davidesperalta.com>
- * @link http://www.hummphp.com/ Humm PHP website
+ * @link http://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2015, Humm PHP - David Esperalta
  */
@@ -24,7 +24,7 @@ namespace Humm\System\Classes;
  */
 class SystemSharedView extends HummView
 {
-  const HUMM_SITE_URL = 'http://www.hummphp.com/?languageCode=%s';
+  const HUMM_SITE_URL = 'http://www.davidesperalta.com/?languageCode=%s';
 
   /**
    * Construct a SystemSharedView object.

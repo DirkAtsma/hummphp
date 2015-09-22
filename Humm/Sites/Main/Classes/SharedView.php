@@ -4,7 +4,7 @@
  * This file implement the main site Shared view class.
  *
  * @author D. Esperalta <info@davidesperalta.com>
- * @link http://www.hummphp.com/ Humm PHP website
+ * @link http://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2015, Humm PHP - David Esperalta
  */
@@ -26,7 +26,7 @@ use
  */
 class SharedView extends HummView
 {
-  const HUMM_SITE_URL = 'http://www.hummphp.com/?languageCode=%s';
+  const HUMM_SITE_URL = 'http://www.davidesperalta.com/?languageCode=%s';
 
   /**
    * Construct the object and set some default template variables.

@@ -9,7 +9,7 @@
     </div>
     <div id="copyrightNote">
      ©2015 Humm PHP - <a href="<?= $hummPhpSiteUrl ?>"
-      title="<?php e('Visit the Humm PHP website') ?>">www.hummphp.com</a>
+      title="<?php e('Visit the Humm PHP website') ?>">www.davidesperalta.com</a>
     </div>
    </footer>
 

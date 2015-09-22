@@ -73,6 +73,6 @@ reports, support questions, etc.
 Just write me an email to: [info@davidesperalta.com]
 
 
-[Humm PHP]:http://www.hummphp.com
-[Humm PHP website]:http://www.hummphp.com
+[Humm PHP]:http://www.davidesperalta.com
+[Humm PHP website]:http://www.davidesperalta.com
 [info@davidesperalta.com]:mailto:info@davidesperalta.com

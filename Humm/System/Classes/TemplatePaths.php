@@ -7,7 +7,7 @@
  * directory paths used in the requested view HTML template.
  *
  * @author D. Esperalta <info@davidesperalta.com>
- * @link http://www.hummphp.com/ Humm PHP website
+ * @link http://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2015, Humm PHP - David Esperalta
  */

@@ -8,7 +8,7 @@
  * @author D. Esperalta <info@davidesperalta.com>
  * @link http://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2015, Humm PHP - David Esperalta
+ * @copyright (C)2016 Humm PHP - David Esperalta
  */
 
 /**

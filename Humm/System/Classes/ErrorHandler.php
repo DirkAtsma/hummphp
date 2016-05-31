@@ -93,9 +93,12 @@ class ErrorHandler extends Unclonable
    * Handle the possible PHP exceptions.
    *
    * @static
-   * @param \Exception $e Throwed exception object.
+   * //@param \Exception $e Throwed exception object. in PHP < 7
+   * //@param \Throwable $e Throved error object ini PHP >= 7
+   * // Do not specify the type below appear compatible with PHP 5.x and 7.x
+   * @TODO We must take another decision here instead to remove the type
    */
-  public static function onException(\Exception $e)
+  public static function onException($e)
   {
     // $e can be null according the PHP help.
     if ($e !== null) {

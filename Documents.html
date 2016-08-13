@@ -455,6 +455,8 @@ $this->displayView('MyFooter');
             <dd>This variable store an instance of the current view class.</dd>
             <dt>$sharedView</dt>
             <dd>This variable store an instance of the optional shared view class.</dd>
+            <dt>$sharedSiteSharedView</dt>
+            <dd>This variable store an instance of the optional shared site shared view class.</dd>
             <dt>$requestUri</dt>
             <dd>This variable store the current request URI.</dd>
             <dt>$siteUrl</dt>
@@ -566,7 +568,10 @@ class ContactView extends HummView
             A "SharedView" is optional and can reside in your site classes directory. Must follow all convenitions and must be inherited from the "HummView" class, just like any other site views class. However, the optional "SharedView" class are setup by the system just before display any site view. So you can use the "SharedView" to setup stuff which can be used across various site views.
           </p>
           <p>
-            For more information you can take a look at the real sample included by the Humm PHP site sample, which implement the optional "SharedView" class.
+           Another possible "SharedView" class to be used is the optionally placed in the shared site classes directory. If this class exists, they are instantiated just after the user site optional "SharedView" class does. This optional shared site "SharedView" class can be useful mostly if you manage various sites with Humm PHP. You can use this class to put certain stuff into the view template for every site managed by the system.
+          </p>
+          <p>
+            For more information you can take a look at the real sample included by the Humm PHP site sample, which implement the optional "SharedView" class and also the "optional" shared site "SharedView" class.
           </p>
           <div class="toPageTop">
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>

@@ -34,6 +34,11 @@ class ViewsHandler extends Unclonable
    * Define the base class which all other views must inherit from.
    */
   const HUMM_VIEW_BASE_CLASS = 'HummView';
+  
+  /**
+   * Define the shared view class optionally placed in the shared site.
+   */
+  const SHARED_SITE_SHARED_VIEW_CLASS = 'Humm\Sites\Shared\Classes\SharedView';  
 
   /**
    * Define the system classes PHP namespace.
@@ -91,10 +96,16 @@ class ViewsHandler extends Unclonable
     TemplateVars::setDefaultSiteVars($template);
     TemplateVars::setDefaultSystemVars($template);
 
-    // An optional shared view class can be used if available.
-    $sharedView = UserSites::sharedViewClassName();
-    if (self::isValidViewClass($sharedView)) {
-      $template->sharedView = new $sharedView($template);
+    // An optional shared view class (in user site) can be used if available.
+    $className = UserSites::sharedViewClassName();
+    if (self::isValidViewClass($className)) {
+      $template->sharedView = new $className($template);
+    }
+
+    // An optional shared view class (in shared site) can be used if available.
+    $className = self::SHARED_SITE_SHARED_VIEW_CLASS;
+    if (self::isValidViewClass($className)) {
+      $template->sharedSiteSharedView = new $className($template);
     }
 
     // Setup into the HTML template the variables which contains

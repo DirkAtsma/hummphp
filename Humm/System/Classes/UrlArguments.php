@@ -155,7 +155,12 @@ class UrlArguments extends Unclonable
     
     $sanitizedRoot = \str_replace(\DIRECTORY_SEPARATOR, '/', DirPaths::root());
     $normalizedUri = \str_replace(ServerInfo::docRoot(), '', $sanitizedRoot);
-    $normalizedUri = \str_replace($normalizedUri, '', ServerInfo::uri());
+
+    if (($normalizedUri !== '') && ($normalizedUri !== '/')) {     
+      $normalizedUri = \str_replace($normalizedUri, '', ServerInfo::uri());
+    } else {
+      $normalizedUri = ServerInfo::uri();
+    }
   
     return \trim($normalizedUri, self::URI_TRIMMING_CHARS);
   }

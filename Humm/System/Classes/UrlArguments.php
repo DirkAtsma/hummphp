@@ -149,15 +149,14 @@ class UrlArguments extends Unclonable
    */
   private static function sanitizedUri()
   {
-    return \trim
-    (
-      \str_replace
-      (
-        \basename(DirPaths::root()),
-        StrUtils::EMPTY_STRING,
-        ServerInfo::uri()
-      ),
-      self::URI_TRIMMING_CHARS
-    );
+    // This objective of the normalized uri is to allow Humm PHP
+    // installation in root but also any level of subdirectories,
+    // then we need to avoid to picking subdirs as URL arguments.
+    
+    $sanitizedRoot = \str_replace(\DIRECTORY_SEPARATOR, '/', DirPaths::root());
+    $normalizedUri = \str_replace(ServerInfo::docRoot(), '', $sanitizedRoot);
+    $normalizedUri = \str_replace($normalizedUri, '', ServerInfo::uri());
+  
+    return \trim($normalizedUri, self::URI_TRIMMING_CHARS);
   }
 }

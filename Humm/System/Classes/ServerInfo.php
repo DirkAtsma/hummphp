@@ -56,6 +56,17 @@ class ServerInfo extends Unclonable
   {
     return UserInput::server('SCRIPT_NAME');
   }
+  
+  /**
+   * Retrieve the server document root path.
+   *
+   * @static
+   * @return string Current server document root path.
+   */
+  public static function docRoot()
+  {
+    return UserInput::server('DOCUMENT_ROOT');
+  }  
 
   /**
    * Find if the server is a localhost or not.
